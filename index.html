@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARAM Bound — ARAM Mayhem Community Hub</title>
+  <meta name="description" content="The ultimate community hub for League of Legends ARAM Mayhem players. Discover top builds for Lux and Ahri, share strategies, and dominate the Howling Abyss." />
+  <meta name="keywords" content="ARAM Mayhem, League of Legends, Lux builds, Ahri builds, Howling Abyss, LoL builds, ARAM community" />
+
+  <!-- Open Graph (for sharing) -->
+  <meta property="og:title" content="ARAM Bound — ARAM Mayhem Community Hub" />
+  <meta property="og:description" content="Discover top builds, share strategies, and dominate ARAM Mayhem on the Howling Abyss." />
+  <meta property="og:type" content="website" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-icon">⚔</span>
+        <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"     class="nav-link active" id="nav-home">Home</a></li>
+        <li><a href="champions.html" class="nav-link" id="nav-champions">Champions</a></li>
+        <li><a href="builds.html"    class="nav-link" id="nav-builds">Builds</a></li>
+        <li><a href="community.html" class="nav-link" id="nav-community">Community</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <a href="create.html" class="btn btn-primary" id="nav-submit-btn">+ Submit Build</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       HERO SECTION
+  ====================================================== -->
+  <section class="hero" id="hero">
+
+    <!-- Background layers -->
+    <div class="hero-bg">
+      <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Main hero content -->
+    <div class="hero-content">
+
+      <!-- Top badge -->
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-icon">❄</span>
+        ARAM Mayhem Community
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-title" id="hero-title">
+        Master the<br />
+        <span class="title-accent">Howling Abyss</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle" id="hero-subtitle">
+        Discover top builds, share your strategies, and dominate ARAM Mayhem
+        with the community's best picks for Lux and Ahri.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-cta">
+        <a href="builds.html" class="btn btn-primary btn-large" id="hero-browse-builds">Browse Builds</a>
+        <a href="champions.html" class="btn btn-ghost btn-large" id="hero-view-champions">View Champions</a>
+      </div>
+
+      <!-- Animated Stats -->
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat">
+          <span class="stat-number" id="stat-builds" data-target="847">0</span>
+          <span class="stat-label">Builds Shared</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" id="stat-champions" data-target="2">0</span>
+          <span class="stat-label">Champions Covered</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" id="stat-discussions" data-target="1204">0</span>
+          <span class="stat-label">Discussions</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-indicator" id="scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       FEATURED CHAMPIONS
+  ====================================================== -->
+  <section class="section champions-section" id="champions">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">Howling Abyss Roster</span>
+        <h2 class="section-title">Featured Champions</h2>
+        <p class="section-sub">Explore top-tier ARAM Mayhem builds for the most popular picks on the bridge</p>
+      </div>
+
+      <div class="champions-grid">
+
+        <!-- ── Ahri Card ── -->
+        <a href="champion-detail.html?champion=ahri" class="champion-card reveal" id="card-ahri">
+          <div class="champion-card-image">
+            <img
+              src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg"
+              alt="Ahri — The Nine-Tailed Fox"
+              loading="lazy"
+            />
+            <div class="champion-card-glow"></div>
+          </div>
+          <div class="champion-card-body">
+            <div class="champion-role-tags">
+              <span class="role-tag role-mage">Mage</span>
+              <span class="role-tag role-assassin">Assassin</span>
+            </div>
+            <h3 class="champion-name">Ahri</h3>
+            <p class="champion-title">The Nine-Tailed Fox</p>
+            <div class="champion-meta">
+              <span class="meta-item">
+                <!-- Star icon -->
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                4.2 / 5 Rating
+              </span>
+              <span class="meta-item">
+                <!-- Person icon -->
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+                32 Builds
+              </span>
+            </div>
+            <div class="win-rate-bar">
+              <div class="win-rate-label">
+                <span>ARAM Win Rate</span>
+                <span class="win-rate-value good">58%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-width="58"></div>
+              </div>
+            </div>
+          </div>
+          <div class="champion-card-footer">
+            <span class="view-builds">View Builds →</span>
+          </div>
+        </a>
+
+        <!-- ── Lux Card ── -->
+        <a href="champion-detail.html?champion=lux" class="champion-card reveal" id="card-lux">
+          <div class="champion-card-image">
+            <img
+              src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Lux_0.jpg"
+              alt="Lux — The Lady of Luminosity"
+              loading="lazy"
+            />
+            <div class="champion-card-glow"></div>
+          </div>
+          <div class="champion-card-body">
+            <div class="champion-role-tags">
+              <span class="role-tag role-mage">Mage</span>
+              <span class="role-tag role-support">Support</span>
+            </div>
+            <h3 class="champion-name">Lux</h3>
+            <p class="champion-title">The Lady of Luminosity</p>
+            <div class="champion-meta">
+              <span class="meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                4.5 / 5 Rating
+              </span>
+              <span class="meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+                41 Builds
+              </span>
+            </div>
+            <div class="win-rate-bar">
+              <div class="win-rate-label">
+                <span>ARAM Win Rate</span>
+                <span class="win-rate-value excellent">62%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill progress-fill--lux" data-width="62"></div>
+              </div>
+            </div>
+          </div>
+          <div class="champion-card-footer">
+            <span class="view-builds">View Builds →</span>
+          </div>
+        </a>
+
+      </div><!-- /champions-grid -->
+
+      <div class="section-cta reveal">
+        <a href="champions.html" class="btn btn-outline" id="all-champions-btn">View All Champions</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       TOP BUILDS THIS WEEK
+  ====================================================== -->
+  <section class="section builds-section" id="top-builds">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">Community Favorites</span>
+        <h2 class="section-title">Top Builds This Week</h2>
+        <p class="section-sub">The highest-rated builds voted on by the ARAM Bound community</p>
+      </div>
+
+      <div class="builds-grid">
+
+        <!-- Build 1 — Lux AP Burst -->
+        <article class="build-card reveal" id="build-1">
+          <div class="build-card-header">
+            <img
+              src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png"
+              alt="Lux"
+              class="build-champion-icon"
+            />
+            <div class="build-info">
+              <h3 class="build-title">Full AP Burst Lux — One-Shot Everything</h3>
+              <div class="build-meta">
+                <span class="build-author">by <strong>IceBridgeCarry</strong></span>
+                <span class="build-patch">Patch 14.8</span>
+              </div>
+            </div>
+            <div class="build-upvote" id="upvote-1">
+              <button class="upvote-btn" data-id="1" aria-label="Upvote this build">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 4L4 20h16L12 4z"/>
+                </svg>
+              </button>
+              <span class="upvote-count" id="vote-count-1">234</span>
+            </div>
+          </div>
+          <div class="build-tags">
+            <span class="build-tag">Full AP</span>
+            <span class="build-tag">Burst</span>
+            <span class="build-tag">High Skill</span>
+          </div>
+          <p class="build-description">
+            Max out Shadowflame into Rabadon's for absurd burst damage. Pair with Void Staff
+            and watch the enemy team melt from full health. Lux's R becomes a global death laser.
+          </p>
+          <div class="build-footer">
+            <div class="build-items">
+              <span class="item-badge">Shadowflame</span>
+              <span class="item-badge">Rabadon's</span>
+              <span class="item-badge">Void Staff</span>
+              <span class="item-more">+3 more</span>
+            </div>
+            <div class="build-stats-mini">
+              <span class="comment-count">💬 18 comments</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Build 2 — Ahri Snowball -->
+        <article class="build-card reveal" id="build-2">
+          <div class="build-card-header">
+            <img
+              src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png"
+              alt="Ahri"
+              class="build-champion-icon"
+            />
+            <div class="build-info">
+              <h3 class="build-title">Ahri Snowball Machine — ARAM Mayhem Carry</h3>
+              <div class="build-meta">
+                <span class="build-author">by <strong>NineTailsGG</strong></span>
+                <span class="build-patch">Patch 14.8</span>
+              </div>
+            </div>
+            <div class="build-upvote" id="upvote-2">
+              <button class="upvote-btn" data-id="2" aria-label="Upvote this build">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 4L4 20h16L12 4z"/>
+                </svg>
+              </button>
+              <span class="upvote-count" id="vote-count-2">198</span>
+            </div>
+          </div>
+          <div class="build-tags">
+            <span class="build-tag">Mobility</span>
+            <span class="build-tag">Carry</span>
+            <span class="build-tag">Beginner Friendly</span>
+          </div>
+          <p class="build-description">
+            Rush Lich Bane for maximum R reset potential. Ahri's passive mobility combined with
+            ARAM Mayhem's constant teamfights makes her unstoppable once she gets going.
+          </p>
+          <div class="build-footer">
+            <div class="build-items">
+              <span class="item-badge">Lich Bane</span>
+              <span class="item-badge">Horizon Focus</span>
+              <span class="item-badge">Shadowflame</span>
+              <span class="item-more">+3 more</span>
+            </div>
+            <div class="build-stats-mini">
+              <span class="comment-count">💬 24 comments</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Build 3 — Lux Support Poke -->
+        <article class="build-card reveal" id="build-3">
+          <div class="build-card-header">
+            <img
+              src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png"
+              alt="Lux"
+              class="build-champion-icon"
+            />
+            <div class="build-info">
+              <h3 class="build-title">Support Lux — Shields &amp; Poke Hybrid</h3>
+              <div class="build-meta">
+                <span class="build-author">by <strong>HolyAbyss</strong></span>
+                <span class="build-patch">Patch 14.8</span>
+              </div>
+            </div>
+            <div class="build-upvote" id="upvote-3">
+              <button class="upvote-btn" data-id="3" aria-label="Upvote this build">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 4L4 20h16L12 4z"/>
+                </svg>
+              </button>
+              <span class="upvote-count" id="vote-count-3">156</span>
+            </div>
+          </div>
+          <div class="build-tags">
+            <span class="build-tag">Support</span>
+            <span class="build-tag">Poke</span>
+            <span class="build-tag tag-new">New!</span>
+          </div>
+          <p class="build-description">
+            Balance between shielding your carry and poking the enemy down. Shurelya's first
+            gives you the movement speed to dodge incoming poke while keeping your team alive.
+          </p>
+          <div class="build-footer">
+            <div class="build-items">
+              <span class="item-badge">Shurelya's</span>
+              <span class="item-badge">Ardent Censer</span>
+              <span class="item-badge">Staff of Flowing</span>
+              <span class="item-more">+3 more</span>
+            </div>
+            <div class="build-stats-mini">
+              <span class="comment-count">💬 11 comments</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /builds-grid -->
+
+      <div class="section-cta reveal">
+        <a href="builds.html" class="btn btn-outline" id="all-builds-btn">See All Builds</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       RECENT DISCUSSIONS
+  ====================================================== -->
+  <section class="section discussions-section" id="discussions">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">Community Talk</span>
+        <h2 class="section-title">Recent Discussions</h2>
+        <p class="section-sub">Join the conversation about ARAM Mayhem strategies and builds</p>
+      </div>
+
+      <div class="discussions-list reveal">
+
+        <a href="community.html" class="discussion-item" id="disc-1">
+          <div class="discussion-icon">🔥</div>
+          <div class="discussion-content">
+            <h4 class="discussion-title">Is Lux actually broken in ARAM Mayhem right now?</h4>
+            <div class="discussion-meta">
+              <span class="disc-author">IceBridgeCarry</span>
+              <span class="disc-time">2 hours ago</span>
+              <span class="disc-replies">43 replies</span>
+            </div>
+          </div>
+          <div class="discussion-arrow">→</div>
+        </a>
+
+        <a href="community.html" class="discussion-item" id="disc-2">
+          <div class="discussion-icon">❄</div>
+          <div class="discussion-content">
+            <h4 class="discussion-title">Ahri vs Lux — Who dominates the Howling Abyss more?</h4>
+            <div class="discussion-meta">
+              <span class="disc-author">NineTailsGG</span>
+              <span class="disc-time">5 hours ago</span>
+              <span class="disc-replies">28 replies</span>
+            </div>
+          </div>
+          <div class="discussion-arrow">→</div>
+        </a>
+
+        <a href="community.html" class="discussion-item" id="disc-3">
+          <div class="discussion-icon">⚡</div>
+          <div class="discussion-content">
+            <h4 class="discussion-title">ARAM Mayhem modifier tips — what's the best perk combo?</h4>
+            <div class="discussion-meta">
+              <span class="disc-author">AbyssWalker99</span>
+              <span class="disc-time">Yesterday</span>
+              <span class="disc-replies">61 replies</span>
+            </div>
+          </div>
+          <div class="discussion-arrow">→</div>
+        </a>
+
+        <a href="community.html" class="discussion-item" id="disc-4">
+          <div class="discussion-icon">💡</div>
+          <div class="discussion-content">
+            <h4 class="discussion-title">Beginner tips for surviving your first ARAM Mayhem match</h4>
+            <div class="discussion-meta">
+              <span class="disc-author">HolyAbyss</span>
+              <span class="disc-time">2 days ago</span>
+              <span class="disc-replies">15 replies</span>
+            </div>
+          </div>
+          <div class="discussion-arrow">→</div>
+        </a>
+
+      </div><!-- /discussions-list -->
+
+      <div class="section-cta reveal">
+        <a href="community.html" class="btn btn-outline" id="join-discussion-btn">Join the Discussion</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CTA BANNER — Submit a Build
+  ====================================================== -->
+  <section class="cta-banner" id="submit-cta">
+    <div class="cta-decoration">
+      <div class="cta-orb cta-orb--1"></div>
+      <div class="cta-orb cta-orb--2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2 class="cta-title">Got a Winning Build?</h2>
+        <p class="cta-sub">
+          Share your ARAM Mayhem strategy with the community.
+          Help others discover what works on the Howling Abyss.
+        </p>
+        <a href="create.html" class="btn btn-primary btn-large" id="submit-build-btn">
+          Submit Your Build
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo" id="footer-logo">
+            <span class="logo-icon">⚔</span>
+            <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+          </a>
+          <p class="footer-tagline">
+            The premier community hub for League of Legends ARAM Mayhem players.
+            Share builds, discuss strategies, and conquer the Howling Abyss.
+          </p>
+        </div>
+
+        <!-- Nav links -->
+        <div class="footer-links">
+          <h4 class="footer-heading">Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="builds.html">Builds</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="create.html">Submit Build</a></li>
+          </ul>
+        </div>
+
+        <!-- Champion links -->
+        <div class="footer-links">
+          <h4 class="footer-heading">Champions</h4>
+          <ul>
+            <li><a href="champion-detail.html?champion=ahri">Ahri Builds</a></li>
+            <li><a href="champion-detail.html?champion=lux">Lux Builds</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          ARAM Bound is a fan-made community website and is not affiliated with or endorsed by Riot Games.
+          League of Legends and all related marks are trademarks of Riot Games, Inc.
+          All champion images © Riot Games.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

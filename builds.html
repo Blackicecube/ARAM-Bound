@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Builds — ARAM Bound | ARAM Mayhem Build Browser</title>
+  <meta name="description" content="Browse all community-submitted ARAM Mayhem builds for Ahri and Lux on ARAM Bound. Sort by top rated, newest, or most discussed." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       NAVIGATION
+  ==================================================== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-icon">⚔</span>
+        <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"     class="nav-link"        id="nav-home">Home</a></li>
+        <li><a href="champions.html" class="nav-link"        id="nav-champions">Champions</a></li>
+        <li><a href="builds.html"    class="nav-link active" id="nav-builds">Builds</a></li>
+        <li><a href="community.html" class="nav-link"        id="nav-community">Community</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="create.html" class="btn btn-primary" id="nav-submit-btn">+ Submit Build</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================
+       PAGE HERO + LIVE SEARCH
+  ==================================================== -->
+  <header class="page-hero" id="page-hero">
+    <div class="page-hero-ornament page-hero-ornament--left"></div>
+    <div class="page-hero-ornament page-hero-ornament--right"></div>
+    <div class="page-hero-content">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="page-breadcrumb-sep">›</span>
+        <span>Builds</span>
+      </nav>
+      <h1 class="page-hero-title">Community Builds</h1>
+      <p class="page-hero-sub">
+        All community-submitted builds for ARAM Mayhem. Filter by champion,
+        playstyle, or sort by community votes.
+      </p>
+
+      <!-- Live search -->
+      <div class="hero-search-wrap">
+        <input
+          type="search"
+          class="hero-search-input"
+          id="buildSearch"
+          placeholder="Search builds by name…"
+          autocomplete="off"
+          aria-label="Search builds"
+        />
+        <span class="hero-search-icon" aria-hidden="true">🔍</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================
+       STICKY FILTER + SORT BAR
+  ==================================================== -->
+  <div class="builds-control-bar" id="buildsControlBar">
+    <div class="builds-control-inner" id="buildsControlInner">
+
+      <!-- Champion filter -->
+      <span class="filter-label">Champion:</span>
+      <button class="filter-btn active" data-champ="all"  id="champ-all">All <span class="filter-count">6</span></button>
+      <button class="filter-btn"        data-champ="ahri" id="champ-ahri">
+        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png"
+             alt="" style="width:16px;height:16px;border-radius:4px;margin-right:4px;vertical-align:middle;border:none;" />
+        Ahri <span class="filter-count">3</span>
+      </button>
+      <button class="filter-btn"        data-champ="lux"  id="champ-lux">
+        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png"
+             alt="" style="width:16px;height:16px;border-radius:4px;margin-right:4px;vertical-align:middle;border:none;" />
+        Lux <span class="filter-count">3</span>
+      </button>
+
+      <div class="control-divider"></div>
+
+      <!-- Playstyle tag filter -->
+      <span class="filter-label">Playstyle:</span>
+      <button class="filter-btn active" data-tag="all"          id="tag-all">All Styles</button>
+      <button class="filter-btn"        data-tag="burst"        id="tag-burst">Burst</button>
+      <button class="filter-btn"        data-tag="poke"         id="tag-poke">Poke</button>
+      <button class="filter-btn"        data-tag="support"      id="tag-support">Support</button>
+      <button class="filter-btn"        data-tag="ability-haste" id="tag-haste">Ability Haste</button>
+
+      <div class="control-divider"></div>
+
+      <!-- Sort -->
+      <span class="filter-label">Sort:</span>
+      <select class="sort-select" id="sortSelect" aria-label="Sort builds">
+        <option value="votes">Top Rated</option>
+        <option value="rating">Highest Rated ★</option>
+        <option value="comments">Most Comments</option>
+      </select>
+
+    </div>
+  </div>
+
+  <!-- ===================================================
+       BUILDS MAIN CONTENT
+  ==================================================== -->
+  <section class="section" id="builds-section" style="background:var(--bg-surface);">
+    <div class="container">
+
+      <!-- Results count -->
+      <div class="builds-results-bar">
+        <p class="builds-results-count" id="resultsCount">
+          Showing <strong id="countVisible">6</strong> of <strong>6</strong> builds
+        </p>
+        <a href="create.html" class="btn btn-outline btn-sm" id="results-submit-link">+ Submit a Build</a>
+      </div>
+
+      <!-- Build feed grid -->
+      <div class="builds-feed-grid" id="buildsGrid">
+
+        <!-- ── LUX: Full AP Burst (234 votes — FEATURED) ── -->
+        <article
+          class="build-feed-card featured reveal"
+          id="bfc-lux-1"
+          data-champion="lux"
+          data-tags="full-ap burst high-skill"
+          data-votes="234"
+          data-rating="4.7"
+          data-comments="3"
+        >
+          <div class="feed-featured-ribbon">⭐ Community Favourite</div>
+          <div class="feed-card-top">
+            <div class="feed-champ-badge">
+              <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png"
+                   alt="Lux" class="feed-champ-icon" />
+              <div>
+                <div class="feed-champ-name">Lux</div>
+                <div class="feed-champ-roles">Mage · Support</div>
+              </div>
+            </div>
+            <div class="feed-vote">
+              <button class="feed-vote-btn" data-build="lux-1" aria-label="Upvote">▲</button>
+              <span class="feed-vote-count" id="fv-lux-1">234</span>
+            </div>
+          </div>
+          <div class="feed-card-body">
+            <div class="feed-build-title">Full AP Burst Lux — One-Shot Everything</div>
+            <div class="feed-meta-row">
+              <span class="feed-stars" aria-label="4.7 out of 5">
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star">★</span>
+              </span>
+              <span class="feed-author">by <strong>IceBridgeCarry</strong></span>
+              <span class="feed-patch">14.8</span>
+            </div>
+            <div class="build-tags">
+              <span class="build-tag">Full AP</span>
+              <span class="build-tag">Burst</span>
+              <span class="build-tag">High Skill</span>
+            </div>
+            <div>
+              <div class="build-section-label">Items</div>
+              <div class="feed-items-row">
+                <span class="feed-item-chip">Shadowflame</span>
+                <span class="feed-item-chip">Rabadon's</span>
+                <span class="feed-item-chip">Void Staff</span>
+                <span class="feed-item-more">+3 more</span>
+              </div>
+            </div>
+            <div class="feed-keystone">🔑 Electrocute</div>
+          </div>
+          <div class="feed-card-footer">
+            <span class="feed-comments">💬 3 comments</span>
+            <a href="champion-detail.html?champion=lux" class="btn btn-primary btn-sm" id="view-lux-1">View Build →</a>
+          </div>
+        </article>
+
+        <!-- ── AHRI: Full AP Burst (198 votes) ── -->
+        <article
+          class="build-feed-card reveal"
+          id="bfc-ahri-1"
+          data-champion="ahri"
+          data-tags="carry burst high-skill"
+          data-votes="198"
+          data-rating="4.2"
+          data-comments="3"
+        >
+          <div class="feed-card-top">
+            <div class="feed-champ-badge">
+              <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png"
+                   alt="Ahri" class="feed-champ-icon" />
+              <div>
+                <div class="feed-champ-name">Ahri</div>
+                <div class="feed-champ-roles">Mage · Assassin</div>
+              </div>
+            </div>
+            <div class="feed-vote">
+              <button class="feed-vote-btn" data-build="ahri-1" aria-label="Upvote">▲</button>
+              <span class="feed-vote-count" id="fv-ahri-1">198</span>
+            </div>
+          </div>
+          <div class="feed-card-body">
+            <div class="feed-build-title">Full AP Burst — One-Shot Carry</div>
+            <div class="feed-meta-row">
+              <span class="feed-stars" aria-label="4.2 out of 5">
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star">★</span>
+              </span>
+              <span class="feed-author">by <strong>NineTailsGG</strong></span>
+              <span class="feed-patch">14.8</span>
+            </div>
+            <div class="build-tags">
+              <span class="build-tag">Carry</span>
+              <span class="build-tag">Burst</span>
+              <span class="build-tag">High Skill</span>
+            </div>
+            <div>
+              <div class="build-section-label">Items</div>
+              <div class="feed-items-row">
+                <span class="feed-item-chip">Shadowflame</span>
+                <span class="feed-item-chip">Rabadon's</span>
+                <span class="feed-item-chip">Void Staff</span>
+                <span class="feed-item-more">+3 more</span>
+              </div>
+            </div>
+            <div class="feed-keystone">🔑 Electrocute</div>
+          </div>
+          <div class="feed-card-footer">
+            <span class="feed-comments">💬 3 comments</span>
+            <a href="champion-detail.html?champion=ahri" class="btn btn-primary btn-sm" id="view-ahri-1">View Build →</a>
+          </div>
+        </article>
+
+        <!-- ── LUX: Support Hybrid (156 votes) ── -->
+        <article
+          class="build-feed-card reveal"
+          id="bfc-lux-2"
+          data-champion="lux"
+          data-tags="support poke"
+          data-votes="156"
+          data-rating="4.2"
+          data-comments="2"
+        >
+          <div class="feed-card-top">
+            <div class="feed-champ-badge">
+              <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png"
+                   alt="Lux" class="feed-champ-icon" />
+              <div>
+                <div class="feed-champ-name">Lux</div>
+                <div class="feed-champ-roles">Mage · Support</div>
+              </div>
+            </div>
+            <div class="feed-vote">
+              <button class="feed-vote-btn" data-build="lux-2" aria-label="Upvote">▲</button>
+              <span class="feed-vote-count" id="fv-lux-2">156</span>
+            </div>
+          </div>
+          <div class="feed-card-body">
+            <div class="feed-build-title">Support Lux — Shields &amp; Poke Hybrid</div>
+            <div class="feed-meta-row">
+              <span class="feed-stars" aria-label="4.2 out of 5">
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star">★</span>
+              </span>
+              <span class="feed-author">by <strong>HolyAbyss</strong></span>
+              <span class="feed-patch">14.8</span>
+            </div>
+            <div class="build-tags">
+              <span class="build-tag">Support</span>
+              <span class="build-tag">Poke</span>
+              <span class="build-tag">New!</span>
+            </div>
+            <div>
+              <div class="build-section-label">Items</div>
+              <div class="feed-items-row">
+                <span class="feed-item-chip">Shurelya's</span>
+                <span class="feed-item-chip">Ardent Censer</span>
+                <span class="feed-item-chip">Staff of Flow</span>
+                <span class="feed-item-more">+3 more</span>
+              </div>
+            </div>
+            <div class="feed-keystone">🔑 Summon Aery</div>
+          </div>
+          <div class="feed-card-footer">
+            <span class="feed-comments">💬 2 comments</span>
+            <a href="champion-detail.html?champion=lux" class="btn btn-primary btn-sm" id="view-lux-2">View Build →</a>
+          </div>
+        </article>
+
+        <!-- ── AHRI: Lich Bane Hypercarry (156 votes) ── -->
+        <article
+          class="build-feed-card reveal"
+          id="bfc-ahri-2"
+          data-champion="ahri"
+          data-tags="mobility carry"
+          data-votes="156"
+          data-rating="4.5"
+          data-comments="2"
+        >
+          <div class="feed-card-top">
+            <div class="feed-champ-badge">
+              <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png"
+                   alt="Ahri" class="feed-champ-icon" />
+              <div>
+                <div class="feed-champ-name">Ahri</div>
+                <div class="feed-champ-roles">Mage · Assassin</div>
+              </div>
+            </div>
+            <div class="feed-vote">
+              <button class="feed-vote-btn" data-build="ahri-2" aria-label="Upvote">▲</button>
+              <span class="feed-vote-count" id="fv-ahri-2">156</span>
+            </div>
+          </div>
+          <div class="feed-card-body">
+            <div class="feed-build-title">Lich Bane Hypercarry — R Reset Machine</div>
+            <div class="feed-meta-row">
+              <span class="feed-stars" aria-label="4.5 out of 5">
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star filled">★</span>
+              </span>
+              <span class="feed-author">by <strong>IceBridgeCarry</strong></span>
+              <span class="feed-patch">14.8</span>
+            </div>
+            <div class="build-tags">
+              <span class="build-tag">Mobility</span>
+              <span class="build-tag">Hypercarry</span>
+              <span class="build-tag">Beginner Friendly</span>
+            </div>
+            <div>
+              <div class="build-section-label">Items</div>
+              <div class="feed-items-row">
+                <span class="feed-item-chip">Lich Bane</span>
+                <span class="feed-item-chip">Horizon Focus</span>
+                <span class="feed-item-chip">Shadowflame</span>
+                <span class="feed-item-more">+3 more</span>
+              </div>
+            </div>
+            <div class="feed-keystone">🔑 Dark Harvest</div>
+          </div>
+          <div class="feed-card-footer">
+            <span class="feed-comments">💬 2 comments</span>
+            <a href="champion-detail.html?champion=ahri" class="btn btn-primary btn-sm" id="view-ahri-2">View Build →</a>
+          </div>
+        </article>
+
+        <!-- ── LUX: Cosmic Ability Haste (134 votes) ── -->
+        <article
+          class="build-feed-card reveal"
+          id="bfc-lux-3"
+          data-champion="lux"
+          data-tags="ability-haste"
+          data-votes="134"
+          data-rating="3.9"
+          data-comments="1"
+        >
+          <div class="feed-card-top">
+            <div class="feed-champ-badge">
+              <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png"
+                   alt="Lux" class="feed-champ-icon" />
+              <div>
+                <div class="feed-champ-name">Lux</div>
+                <div class="feed-champ-roles">Mage · Support</div>
+              </div>
+            </div>
+            <div class="feed-vote">
+              <button class="feed-vote-btn" data-build="lux-3" aria-label="Upvote">▲</button>
+              <span class="feed-vote-count" id="fv-lux-3">134</span>
+            </div>
+          </div>
+          <div class="feed-card-body">
+            <div class="feed-build-title">Cosmic Lux — Ability Haste Spam</div>
+            <div class="feed-meta-row">
+              <span class="feed-stars" aria-label="3.9 out of 5">
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star">★</span>
+              </span>
+              <span class="feed-author">by <strong>GalacticAbyss</strong></span>
+              <span class="feed-patch">14.8</span>
+            </div>
+            <div class="build-tags">
+              <span class="build-tag">Ability Haste</span>
+              <span class="build-tag">Sustained</span>
+              <span class="build-tag">Beginner Friendly</span>
+            </div>
+            <div>
+              <div class="build-section-label">Items</div>
+              <div class="feed-items-row">
+                <span class="feed-item-chip">Cosmic Drive</span>
+                <span class="feed-item-chip">Shadowflame</span>
+                <span class="feed-item-chip">Horizon Focus</span>
+                <span class="feed-item-more">+3 more</span>
+              </div>
+            </div>
+            <div class="feed-keystone">🔑 Phase Rush</div>
+          </div>
+          <div class="feed-card-footer">
+            <span class="feed-comments">💬 1 comment</span>
+            <a href="champion-detail.html?champion=lux" class="btn btn-primary btn-sm" id="view-lux-3">View Build →</a>
+          </div>
+        </article>
+
+        <!-- ── AHRI: Poke & Run (112 votes) ── -->
+        <article
+          class="build-feed-card reveal"
+          id="bfc-ahri-3"
+          data-champion="ahri"
+          data-tags="poke"
+          data-votes="112"
+          data-rating="3.8"
+          data-comments="1"
+        >
+          <div class="feed-card-top">
+            <div class="feed-champ-badge">
+              <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png"
+                   alt="Ahri" class="feed-champ-icon" />
+              <div>
+                <div class="feed-champ-name">Ahri</div>
+                <div class="feed-champ-roles">Mage · Assassin</div>
+              </div>
+            </div>
+            <div class="feed-vote">
+              <button class="feed-vote-btn" data-build="ahri-3" aria-label="Upvote">▲</button>
+              <span class="feed-vote-count" id="fv-ahri-3">112</span>
+            </div>
+          </div>
+          <div class="feed-card-body">
+            <div class="feed-build-title">Poke &amp; Run — Safe ARAM Playstyle</div>
+            <div class="feed-meta-row">
+              <span class="feed-stars" aria-label="3.8 out of 5">
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star filled">★</span><span class="feed-star filled">★</span>
+                <span class="feed-star">★</span>
+              </span>
+              <span class="feed-author">by <strong>HolyAbyss</strong></span>
+              <span class="feed-patch">14.8</span>
+            </div>
+            <div class="build-tags">
+              <span class="build-tag">Poke</span>
+              <span class="build-tag">Safe</span>
+              <span class="build-tag">Utility</span>
+            </div>
+            <div>
+              <div class="build-section-label">Items</div>
+              <div class="feed-items-row">
+                <span class="feed-item-chip">Luden's</span>
+                <span class="feed-item-chip">Horizon Focus</span>
+                <span class="feed-item-chip">Shadowflame</span>
+                <span class="feed-item-more">+3 more</span>
+              </div>
+            </div>
+            <div class="feed-keystone">🔑 Arcane Comet</div>
+          </div>
+          <div class="feed-card-footer">
+            <span class="feed-comments">💬 1 comment</span>
+            <a href="champion-detail.html?champion=ahri" class="btn btn-primary btn-sm" id="view-ahri-3">View Build →</a>
+          </div>
+        </article>
+
+        <!-- No results message (hidden by default) -->
+        <p class="no-builds-msg" id="noBuildsMsg" style="display:none;">
+          No builds match your filters. Try a different combination! 🔍
+        </p>
+
+      </div><!-- /builds-feed-grid -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- ===================================================
+       SUBMIT YOUR BUILD CTA
+  ==================================================== -->
+  <section class="submit-cta-section" id="submit-cta">
+    <div class="container">
+      <div class="submit-cta-inner">
+        <div class="submit-cta-icon">✦</div>
+        <h2 class="submit-cta-title">Have a Build That Works?</h2>
+        <p class="submit-cta-sub">
+          Share your ARAM Mayhem strategy with the community.
+          Whether it's a cheesy off-meta pick or a polished meta build —
+          every insight makes the Howling Abyss better for everyone.
+        </p>
+        <a href="create.html" class="btn btn-primary" id="cta-submit-btn">+ Submit Your Build</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FOOTER
+  ==================================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo" id="footer-logo">
+            <span class="logo-icon">⚔</span>
+            <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+          </a>
+          <p class="footer-tagline">
+            The premier community hub for League of Legends ARAM Mayhem players.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="builds.html">Builds</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="create.html">Submit Build</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Champions</h4>
+          <ul>
+            <li><a href="champion-detail.html?champion=ahri">Ahri Builds</a></li>
+            <li><a href="champion-detail.html?champion=lux">Lux Builds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          ARAM Bound is a fan-made community website not affiliated with Riot Games.
+          League of Legends © Riot Games, Inc. All champion images © Riot Games.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  /* ============================================================
+     BUILDS PAGE — Filter, Search & Sort Logic
+  ============================================================ */
+  'use strict';
+
+  const cards     = Array.from(document.querySelectorAll('.build-feed-card'));
+  const noMsg     = document.getElementById('noBuildsMsg');
+  const countEl   = document.getElementById('countVisible');
+
+  let activeChamp  = 'all';
+  let activeTag    = 'all';
+  let searchQuery  = '';
+  let sortMode     = 'votes';
+
+  /* ── Apply all active filters + sort ─────────────────── */
+  function applyFilters() {
+    let visible = 0;
+
+    cards.forEach(card => {
+      const champ   = card.getAttribute('data-champion') || '';
+      const tags    = card.getAttribute('data-tags')     || '';
+      const title   = card.querySelector('.feed-build-title')?.textContent.toLowerCase() || '';
+
+      const champOk  = activeChamp === 'all' || champ === activeChamp;
+      const tagOk    = activeTag   === 'all' || tags.includes(activeTag);
+      const searchOk = title.includes(searchQuery.toLowerCase().trim());
+
+      const show = champOk && tagOk && searchOk;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    if (countEl) countEl.textContent = visible;
+    if (noMsg)   noMsg.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  /* ── Sort the grid ────────────────────────────────────── */
+  function applySort() {
+    const grid = document.getElementById('buildsGrid');
+    if (!grid) return;
+    const sorted = cards.slice().sort((a, b) => {
+      const v = key => parseFloat(a.getAttribute('data-' + key)) - parseFloat(b.getAttribute('data-' + key));
+      if (sortMode === 'votes')    return parseFloat(b.getAttribute('data-votes'))    - parseFloat(a.getAttribute('data-votes'));
+      if (sortMode === 'rating')   return parseFloat(b.getAttribute('data-rating'))   - parseFloat(a.getAttribute('data-rating'));
+      if (sortMode === 'comments') return parseFloat(b.getAttribute('data-comments')) - parseFloat(a.getAttribute('data-comments'));
+      return 0;
+    });
+    sorted.forEach(card => grid.appendChild(card)); // re-order in DOM
+    // Also move no-results msg to end
+    if (noMsg) grid.appendChild(noMsg);
+    applyFilters();
+  }
+
+  /* ── Champion filter buttons ──────────────────────────── */
+  document.querySelectorAll('[data-champ]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-champ]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeChamp = btn.getAttribute('data-champ');
+      applyFilters();
+    });
+  });
+
+  /* ── Tag filter buttons ───────────────────────────────── */
+  document.querySelectorAll('[data-tag]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-tag]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTag = btn.getAttribute('data-tag');
+      applyFilters();
+    });
+  });
+
+  /* ── Live search ──────────────────────────────────────── */
+  const searchInput = document.getElementById('buildSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      searchQuery = searchInput.value;
+      applyFilters();
+    });
+  }
+
+  /* ── Sort select ──────────────────────────────────────── */
+  const sortSelect = document.getElementById('sortSelect');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => {
+      sortMode = sortSelect.value;
+      applySort();
+    });
+  }
+
+  /* ── Upvote buttons ───────────────────────────────────── */
+  document.querySelectorAll('.feed-vote-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key     = btn.getAttribute('data-build');
+      const countEl = document.getElementById('fv-' + key);
+      if (!countEl) return;
+      const voted = btn.classList.toggle('voted');
+      const n     = parseInt(countEl.textContent, 10);
+      countEl.textContent = voted ? n + 1 : n - 1;
+      // Update card's data-votes for re-sorting
+      btn.closest('[data-votes]')?.setAttribute('data-votes', voted ? n + 1 : n - 1);
+    });
+  });
+
+  </script>
+</body>
+</html>

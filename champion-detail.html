@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Champion — ARAM Bound</title>
+  <meta name="description" id="page-desc" content="ARAM Mayhem builds and strategies on ARAM Bound." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       NAVIGATION
+  ==================================================== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-icon">⚔</span>
+        <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"     class="nav-link"        id="nav-home">Home</a></li>
+        <li><a href="champions.html" class="nav-link active" id="nav-champions">Champions</a></li>
+        <li><a href="builds.html"    class="nav-link"        id="nav-builds">Builds</a></li>
+        <li><a href="community.html" class="nav-link"        id="nav-community">Community</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="create.html" class="btn btn-primary" id="nav-submit-btn">+ Submit Build</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================
+       CHAMPION HERO (populated by JS)
+  ==================================================== -->
+  <header class="champ-detail-hero" id="champHero">
+    <div class="champ-hero-overlay"></div>
+    <div class="champ-hero-content container">
+      <div class="champ-hero-top">
+        <nav class="page-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="page-breadcrumb-sep">›</span>
+          <a href="champions.html">Champions</a>
+          <span class="page-breadcrumb-sep">›</span>
+          <span id="hero-champ-name">—</span>
+        </nav>
+        <h1 class="champ-detail-name" id="hero-name">Loading…</h1>
+        <p class="champ-detail-title-text" id="hero-title-text">—</p>
+        <div class="champ-detail-roles" id="hero-roles"></div>
+      </div>
+      <div class="champ-hero-stats-row" id="heroStatsRow">
+        <div class="hero-stat-pill">
+          <span class="hero-stat-val" id="stat-winrate">—</span>
+          <span class="hero-stat-lbl">Win Rate</span>
+        </div>
+        <div class="hero-stat-pill">
+          <span class="hero-stat-val" id="stat-pickrate">—</span>
+          <span class="hero-stat-lbl">Pick Rate</span>
+        </div>
+        <div class="hero-stat-pill">
+          <span class="hero-stat-val" id="stat-difficulty">—</span>
+          <span class="hero-stat-lbl">Difficulty</span>
+        </div>
+        <div class="hero-stat-pill">
+          <span class="hero-stat-val" id="stat-buildcount">—</span>
+          <span class="hero-stat-lbl">Community Builds</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================
+       TAB NAVIGATION
+  ==================================================== -->
+  <div class="tab-nav-wrapper" id="tabNavWrapper">
+    <nav class="tab-nav" role="tablist" aria-label="Champion sections">
+      <button class="tab-btn active" data-tab="builds"   id="tab-btn-builds"   role="tab" aria-selected="true">⚔ Builds</button>
+      <button class="tab-btn"        data-tab="augments" id="tab-btn-augments" role="tab" aria-selected="false">✦ Augments</button>
+      <button class="tab-btn"        data-tab="about"    id="tab-btn-about"    role="tab" aria-selected="false">📖 About</button>
+    </nav>
+  </div>
+
+  <!-- ===================================================
+       TAB CONTENT
+  ==================================================== -->
+  <main class="tab-content-area">
+
+    <!-- ── BUILDS TAB ─────────────────────────────── -->
+    <div class="tab-panel active" id="tab-builds" role="tabpanel" aria-labelledby="tab-btn-builds">
+      <div class="container">
+
+        <!-- Build filter row (populated by JS) -->
+        <div class="builds-filter-row" id="buildsFilterRow" role="group" aria-label="Filter builds"></div>
+
+        <!-- Build cards (populated by JS) -->
+        <div class="builds-detail-grid" id="buildsGrid"></div>
+
+      </div>
+    </div>
+
+    <!-- ── AUGMENTS TAB ───────────────────────────── -->
+    <div class="tab-panel" id="tab-augments" role="tabpanel" aria-labelledby="tab-btn-augments">
+      <div class="container">
+        <div class="augments-full-section">
+
+          <div class="section-header" style="text-align:left; margin-bottom:36px;">
+            <span class="section-tag">Community Voted</span>
+            <h2 class="section-title" style="text-align:left; -webkit-text-fill-color:var(--text-primary); background:none;">Top Augments</h2>
+            <p class="section-sub" style="margin-left:0; text-align:left;">
+              Ranked by upvotes from ARAM Mayhem players. Prismatic are rarest &amp; most impactful.
+            </p>
+          </div>
+
+          <!-- Augment full list (populated by JS) -->
+          <div class="augment-full-list" id="augmentsFullList"></div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ABOUT TAB ──────────────────────────────── -->
+    <div class="tab-panel" id="tab-about" role="tabpanel" aria-labelledby="tab-btn-about">
+      <div class="container">
+        <div class="about-content">
+          <p class="about-overview" id="aboutOverview"></p>
+          <div class="strength-weakness-grid">
+            <div class="sw-column sw-strengths">
+              <h2 class="sw-heading sw-heading--green">✓ Strengths</h2>
+              <ul class="sw-list" id="strengthsList"></ul>
+            </div>
+            <div class="sw-column sw-weaknesses">
+              <h2 class="sw-heading sw-heading--red">✕ Weaknesses</h2>
+              <ul class="sw-list" id="weaknessesList"></ul>
+            </div>
+          </div>
+          <div class="tips-section">
+            <h2 class="tips-heading">💡 ARAM Mayhem Tips</h2>
+            <ol class="tips-list" id="tipsList"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===================================================
+       FOOTER
+  ==================================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo" id="footer-logo">
+            <span class="logo-icon">⚔</span>
+            <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+          </a>
+          <p class="footer-tagline">The premier community hub for League of Legends ARAM Mayhem players.</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="builds.html">Builds</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Champions</h4>
+          <ul>
+            <li><a href="champion-detail.html?champion=ahri">Ahri Builds</a></li>
+            <li><a href="champion-detail.html?champion=lux">Lux Builds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          ARAM Bound is a fan-made site not affiliated with Riot Games.
+          League of Legends © Riot Games, Inc. All champion images © Riot Games.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  /* ============================================================
+     CHAMPION DETAIL PAGE — Data + Rendering Engine
+     Reads ?champion=ahri or ?champion=lux from the URL,
+     looks up the data below, and populates the whole page.
+  ============================================================ */
+  'use strict';
+
+  /* ── Champion Data ─────────────────────────────────────── */
+  const CHAMPIONS = {
+
+    ahri: {
+      name: 'Ahri',
+      title: 'The Nine-Tailed Fox',
+      icon:    'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png',
+      splash:  'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg',
+      roles:   [{ name: 'Mage', cls: 'role-mage' }, { name: 'Assassin', cls: 'role-assassin' }],
+      winRate:    58,
+      pickRate:   14.2,
+      difficulty: 3,
+      buildCount: 32,
+
+      about: {
+        overview: 'Ahri is one of the most dangerous mobile mages in ARAM Mayhem. Her combination of long-range poke, reliable engage via Charm (E), and triple-dash ultimate makes her incredibly difficult to pin down on the Howling Abyss. In the frantic teamfights of Mayhem, she excels at picking off isolated targets and resetting Spirit Rush to chase down survivors or escape.',
+        strengths: [
+          'High single-target burst damage with Q + W + E combo',
+          'Incredible mobility with triple-dash R (Spirit Rush)',
+          'Charm (E) provides reliable crowd control for picks',
+          'R resets on kills/assists allow extended teamfight presence',
+          'Passive healing sustains through poke trades on the bridge',
+        ],
+        weaknesses: [
+          'Squishy — dies fast to focused burst or hard CC',
+          'Charm is a skillshot that can be dodged',
+          'Limited AoE damage compared to other mages',
+          'Falls behind quickly if early charms are missed',
+        ],
+        tips: [
+          'Use Q to poke safely before committing to a full combo',
+          'Charm (E) first, then Q through the charmed enemy — it hits twice',
+          'Save at least one R dash for escaping after you engage',
+          'In Mayhem, activate augments early — pick fights after your Prismatic is live',
+          'Combine with teammates who have hard CC to guarantee charm lands on priority targets',
+        ],
+      },
+
+      builds: [
+        {
+          id: 'ahri-build-1',
+          title: 'Full AP Burst — One-Shot Carry',
+          author: 'NineTailsGG',
+          patch: '14.8',
+          votes: 198,
+          tags: ['Carry', 'Burst', 'High Skill'],
+          rating: 4.2,
+          description: 'The go-to AP burst build for Ahri. Rush Shadowflame first to maximise early kill potential, then pivot into Rabadon\'s for a massive AP spike. This build activates the Jeweled Gauntlet augment perfectly — your Q crits are terrifying from across the bridge.',
+          keystone: 'Electrocute',
+          runes: ['Sudden Impact', 'Eyeball Collection', 'Treasure Hunter'],
+          items: ["Shadowflame", "Rabadon's Deathcap", "Void Staff", "Lich Bane", "Horizon Focus", "Zhonya's Hourglass"],
+          summoners: ['Flash', 'Ignite'],
+          comments: [
+            { author: 'FoxGirl99',   text: 'This build is insane with Jeweled Gauntlet. Literally one-shot people from across the bridge.', time: '2 days ago', likes: 24 },
+            { author: 'AbyssCarry',  text: "Works great but you NEED to hit your charms. Don't try this if you're new to Ahri.", time: '3 days ago', likes: 18 },
+            { author: 'HexTech77',   text: "Swapped Horizon Focus for Cryptbloom and it's even better for teamfights.", time: '5 days ago', likes: 12 },
+          ],
+        },
+        {
+          id: 'ahri-build-2',
+          title: 'Lich Bane Hypercarry — R Reset Machine',
+          author: 'IceBridgeCarry',
+          patch: '14.8',
+          votes: 156,
+          tags: ['Mobility', 'Hypercarry', 'Beginner Friendly'],
+          rating: 4.5,
+          description: "Rush Lich Bane first and feel the difference — every ability empowers your next auto, massively boosting Ahri's burst window. In ARAM Mayhem's constant fights, the Spellblade augment transforms this into an absolute beast of a build.",
+          keystone: 'Dark Harvest',
+          runes: ['Taste of Blood', 'Eyeball Collection', 'Ingenious Hunter'],
+          items: ["Lich Bane", "Horizon Focus", "Shadowflame", "Rabadon's Deathcap", "Void Staff", "Cryptbloom"],
+          summoners: ['Flash', 'Barrier'],
+          comments: [
+            { author: 'WolfPack',  text: 'This is my personal favourite. The Lich Bane proc feels so satisfying after a charm.', time: '1 day ago', likes: 31 },
+            { author: 'StarGuide', text: 'Beginner friendly tag is accurate. Much easier to play than full burst builds.', time: '4 days ago', likes: 15 },
+          ],
+        },
+        {
+          id: 'ahri-build-3',
+          title: 'Poke & Run — Safe ARAM Playstyle',
+          author: 'HolyAbyss',
+          patch: '14.8',
+          votes: 112,
+          tags: ['Poke', 'Safe', 'Utility'],
+          rating: 3.8,
+          description: "Play Ahri as a long-range poke mage. Luden's first for the passive poke damage, then Horizon Focus for amplified damage on long-range hits. Much safer than burst builds and still contributes huge damage across a full 20-minute ARAM.",
+          keystone: 'Arcane Comet',
+          runes: ['Manaflow Band', 'Transcendence', 'Scorch'],
+          items: ["Luden's Companion", "Horizon Focus", "Shadowflame", "Void Staff", "Rabadon's Deathcap", "Cosmic Drive"],
+          summoners: ['Flash', 'Clarity'],
+          comments: [
+            { author: 'SafetyFirst', text: "Perfect for when you're not confident hitting charms. Just spam Q and poke them down.", time: '6 days ago', likes: 9 },
+          ],
+        },
+      ],
+
+      augments: [
+        { rank: 1, name: 'Jeweled Gauntlet',  desc: 'Your damaging abilities can critically strike',       tier: 'prismatic', votes: 312, pct: 96 },
+        { rank: 2, name: 'Spellblade',         desc: 'After using an ability, empowers next basic attack',   tier: 'prismatic', votes: 287, pct: 88 },
+        { rank: 3, name: 'Runic Empowerment',  desc: 'Kills restore a portion of ability cooldowns',        tier: 'gold',      votes: 198, pct: 61 },
+        { rank: 4, name: 'Stormsurge',         desc: 'High single-target damage triggers a lightning bolt', tier: 'gold',      votes: 176, pct: 54 },
+        { rank: 5, name: 'Mana Surge',         desc: 'First ability hit each few seconds restores mana',    tier: 'silver',    votes: 134, pct: 41 },
+      ],
+    },
+
+    lux: {
+      name: 'Lux',
+      title: 'The Lady of Luminosity',
+      icon:    'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png',
+      splash:  'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lux_0.jpg',
+      roles:   [{ name: 'Mage', cls: 'role-mage' }, { name: 'Support', cls: 'role-support' }],
+      winRate:    62,
+      pickRate:   18.9,
+      difficulty: 2,
+      buildCount: 41,
+
+      about: {
+        overview: "Lux is arguably the strongest ARAM Mayhem pick in the current patch. Her light-bending abilities — Q binding two enemies simultaneously, E shielding allies and slowing enemies, and a global R laser — make her invaluable in every phase of the game. Her unique ability to play both pure AP burst and supportive poke gives her unmatched flexibility on the Howling Abyss.",
+        strengths: [
+          'Best-in-class poke damage from extreme range',
+          'Global ultimate (Finales Funkeln) gets constant resets in ARAM fights',
+          'Q (Light Binding) can simultaneously hit TWO enemies in a line',
+          'E (Lucent Singularity) is a powerful slow, burst, AND shield combo',
+          'Can function as both AP burst mage and utility support',
+        ],
+        weaknesses: [
+          'No mobility or dash — extremely vulnerable to divers and assassins',
+          'All abilities are skillshots that can be dodged',
+          'Requires strict positioning discipline — must always stay at max range',
+          'Low base health makes her easy to burst if caught',
+        ],
+        tips: [
+          'Stand at maximum Q range and poke constantly — never let enemies play comfortably',
+          "Q hits TWO targets in a line — aim through minions and cluster enemies",
+          'Time your E shield BEFORE allies take damage, not after — it works as a pre-shield',
+          'In Mayhem, your R cooldown refreshes so quickly — treat it like a spammable ability',
+          'Jeweled Gauntlet augment makes your R deal critical damage — this is your #1 Prismatic priority',
+        ],
+      },
+
+      builds: [
+        {
+          id: 'lux-build-1',
+          title: 'Full AP Burst Lux — One-Shot Everything',
+          author: 'IceBridgeCarry',
+          patch: '14.8',
+          votes: 234,
+          tags: ['Full AP', 'Burst', 'High Skill'],
+          rating: 4.7,
+          description: "Max out Shadowflame into Rabadon's for absurd burst damage. Pair with Void Staff for magic penetration and watch the enemy team melt from full health. With Jeweled Gauntlet augment, your R crits for nearly 3x total AP damage on a single target.",
+          keystone: 'Electrocute',
+          runes: ['Sudden Impact', 'Eyeball Collection', 'Treasure Hunter'],
+          items: ["Shadowflame", "Rabadon's Deathcap", "Void Staff", "Cryptbloom", "Zhonya's Hourglass", "Horizon Focus"],
+          summoners: ['Flash', 'Ignite'],
+          comments: [
+            { author: 'LightShow99',   text: 'Jeweled Gauntlet + this build = instant win. People literally stop playing after getting one-shot by R.', time: '1 day ago', likes: 47 },
+            { author: 'GoldenLux',     text: "Don't sleep on Cryptbloom 4th — the healing after kills is insane in ARAM Mayhem.", time: '2 days ago', likes: 28 },
+            { author: 'BridgeWatcher', text: 'Best Lux build hands down. Been using this for 3 patches straight.', time: '1 week ago', likes: 19 },
+          ],
+        },
+        {
+          id: 'lux-build-2',
+          title: 'Support Lux — Shields & Poke Hybrid',
+          author: 'HolyAbyss',
+          patch: '14.8',
+          votes: 156,
+          tags: ['Support', 'Poke', 'New!'],
+          rating: 4.2,
+          description: "Balance between shielding your carry and poking the enemy down. Shurelya's first for the movement speed boost — crucial for dodging poke on the narrow bridge. Ardent Censer then buffs attack speed and on-hit for your ADC every time you land E.",
+          keystone: 'Summon Aery',
+          runes: ['Manaflow Band', 'Transcendence', 'Gathering Storm'],
+          items: ["Shurelya's Battlesong", "Ardent Censer", "Staff of Flowing Water", "Horizon Focus", "Shadowflame", "Rabadon's Deathcap"],
+          summoners: ['Flash', 'Exhaust'],
+          comments: [
+            { author: 'ShieldMaiden', text: 'Underrated build. Your team feels so safe and you still chunk enemies with R.', time: '3 days ago', likes: 22 },
+            { author: 'AbyssLight',   text: 'Good build but make sure your carry actually uses the attack speed buff lol.', time: '4 days ago', likes: 16 },
+          ],
+        },
+        {
+          id: 'lux-build-3',
+          title: 'Cosmic Lux — Ability Haste Spam',
+          author: 'GalacticAbyss',
+          patch: '14.8',
+          votes: 134,
+          tags: ['Ability Haste', 'Sustained', 'Beginner Friendly'],
+          rating: 3.9,
+          description: "Stack ability haste to reduce R cooldown to near-zero. With enough CDR in ARAM Mayhem, you're basically auto-attacking with a global laser. Cosmic Drive first for the movement speed and haste, then build into full damage once you feel comfortable.",
+          keystone: 'Phase Rush',
+          runes: ['Nimbus Cloak', 'Transcendence', 'Waterwalking'],
+          items: ["Cosmic Drive", "Shadowflame", "Horizon Focus", "Rabadon's Deathcap", "Void Staff", "Zhonya's Hourglass"],
+          summoners: ['Flash', 'Clarity'],
+          comments: [
+            { author: 'SpeedLux', text: "When your R cooldown hits 15 seconds mid-fight it's just disgusting. Highly recommend trying this.", time: '5 days ago', likes: 18 },
+          ],
+        },
+      ],
+
+      augments: [
+        { rank: 1, name: 'Jeweled Gauntlet',    desc: 'Your damaging abilities can critically strike',       tier: 'prismatic', votes: 401, pct: 100 },
+        { rank: 2, name: 'Celestial Body',       desc: 'Gain bonus max health; deal reduced damage early',   tier: 'prismatic', votes: 298, pct: 74  },
+        { rank: 3, name: 'Glacial Burst',        desc: 'Immobilising enemies also creates a slowing zone',   tier: 'gold',      votes: 245, pct: 61  },
+        { rank: 4, name: 'Healing Orb',          desc: 'Shielding allies also grants them a small heal',     tier: 'gold',      votes: 189, pct: 47  },
+        { rank: 5, name: 'Crystalline Blessing', desc: 'Your root abilities grant a brief shield on hit',    tier: 'silver',    votes: 142, pct: 35  },
+      ],
+    },
+
+  }; /* end CHAMPIONS */
+
+  /* ── Helpers ───────────────────────────────────────────── */
+
+  function getParam(key) {
+    return new URLSearchParams(window.location.search).get(key);
+  }
+
+  function starsHtml(rating, max = 5) {
+    let html = '';
+    for (let i = 1; i <= max; i++) {
+      html += `<span class="brs ${i <= Math.round(rating) ? 'filled' : ''}">★</span>`;
+    }
+    return html;
+  }
+
+  function difficultyHtml(level, max = 5) {
+    let html = '';
+    for (let i = 1; i <= max; i++) {
+      html += `<span style="color:${i <= level ? 'var(--gold)' : 'var(--text-muted)'};">★</span>`;
+    }
+    return html;
+  }
+
+  function tierClass(tier) {
+    return { prismatic: 'tier-prismatic', gold: 'tier-gold', silver: 'tier-silver' }[tier] || 'tier-silver';
+  }
+
+  function tierBarClass(tier) {
+    return { prismatic: 'prismatic', gold: 'gold', silver: 'silver' }[tier] || 'silver';
+  }
+
+  /* ── Render Functions ──────────────────────────────────── */
+
+  function renderHero(c) {
+    const hero = document.getElementById('champHero');
+    hero.style.backgroundImage = `url('${c.splash}')`;
+
+    document.getElementById('page-title').textContent  = `${c.name} Builds — ARAM Bound`;
+    document.getElementById('page-desc').content       = `Top ARAM Mayhem builds for ${c.name} on ARAM Bound. Community-voted strategies for the Howling Abyss.`;
+    document.getElementById('hero-champ-name').textContent = c.name;
+    document.getElementById('hero-name').textContent       = c.name;
+    document.getElementById('hero-title-text').textContent = c.title;
+
+    document.getElementById('stat-winrate').textContent   = c.winRate + '%';
+    document.getElementById('stat-pickrate').textContent  = c.pickRate + '%';
+    document.getElementById('stat-difficulty').innerHTML  = difficultyHtml(c.difficulty);
+    document.getElementById('stat-buildcount').textContent = c.buildCount;
+
+    const rolesEl = document.getElementById('hero-roles');
+    rolesEl.innerHTML = c.roles.map(r =>
+      `<span class="role-tag ${r.cls}">${r.name}</span>`
+    ).join('');
+  }
+
+  function renderBuild(build, champKey) {
+    const itemsHtml = build.items.map((item, i) =>
+      `<span class="item-chip">${item}</span>${i < build.items.length - 1 ? '<span class="item-path-arrow">›</span>' : ''}`
+    ).join('');
+
+    const secondaryRunesHtml = build.runes.map(r =>
+      `<span class="rune-chip">${r}</span>`
+    ).join('');
+
+    const summonersHtml = build.summoners.map(s =>
+      `<span class="summoner-chip">${s}</span>`
+    ).join('');
+
+    const commentsHtml = build.comments.map(c => `
+      <div class="comment-item">
+        <div class="comment-avatar">${c.author.slice(0, 2)}</div>
+        <div class="comment-body">
+          <div class="comment-meta">
+            <span class="comment-author">${c.author}</span>
+            <span class="comment-time">${c.time}</span>
+          </div>
+          <p class="comment-text">${c.text}</p>
+          <span class="comment-likes" title="Like this comment">♥ ${c.likes} likes</span>
+        </div>
+      </div>
+    `).join('');
+
+    return `
+      <article class="build-detail-card" id="${build.id}">
+
+        <!-- Card Header -->
+        <div class="build-detail-header">
+          <div style="flex:1; min-width:0;">
+            <div class="build-rating-stars" aria-label="Rating: ${build.rating} out of 5">
+              ${starsHtml(build.rating)}
+              <span style="font-size:0.72rem; color:var(--text-muted); margin-left:6px;">${build.rating}/5</span>
+            </div>
+            <div class="build-detail-title">${build.title}</div>
+            <div class="build-detail-meta">
+              <span class="build-author">by <strong>${build.author}</strong></span>
+              <span class="build-patch">${build.patch}</span>
+            </div>
+            <div class="build-tags" style="margin-top:8px;">
+              ${build.tags.map(t => `<span class="build-tag">${t}</span>`).join('')}
+            </div>
+          </div>
+
+          <!-- Upvote -->
+          <div class="build-upvote" id="upvote-detail-${build.id}">
+            <button class="upvote-btn" data-build="${build.id}" aria-label="Upvote this build">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4L4 20h16L12 4z"/></svg>
+            </button>
+            <span class="upvote-count" id="vote-${build.id}">${build.votes}</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="build-detail-body">
+
+          <!-- Description -->
+          <p class="build-description-text">${build.description}</p>
+
+          <!-- Item Path -->
+          <div>
+            <div class="build-section-label">Item Build Path</div>
+            <div class="item-path">${itemsHtml}</div>
+          </div>
+
+          <!-- Runes & Summoners -->
+          <div class="rune-summoner-row">
+            <div class="rune-block">
+              <div class="build-section-label">Keystone &amp; Runes</div>
+              <div class="keystone-chip">🔑 ${build.keystone}</div>
+              <div class="secondary-runes">${secondaryRunesHtml}</div>
+            </div>
+            <div class="summoner-block">
+              <div class="build-section-label">Summoner Spells</div>
+              <div class="summoner-chips">${summonersHtml}</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Comments Toggle -->
+        <div class="build-comments-toggle" id="toggle-${build.id}" role="button" tabindex="0"
+             aria-expanded="false" aria-controls="comments-${build.id}">
+          <span class="toggle-label">
+            💬 ${build.comments.length} comment${build.comments.length !== 1 ? 's' : ''}
+          </span>
+          <span class="toggle-icon">▼</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="build-comments-section" id="comments-${build.id}">
+          ${commentsHtml}
+        </div>
+
+      </article>
+    `;
+  }
+
+  function renderBuildsTab(c) {
+    /* filter row */
+    const allTags  = [...new Set(c.builds.flatMap(b => b.tags.filter(t => t !== 'New!')))];
+    const filterEl = document.getElementById('buildsFilterRow');
+    filterEl.innerHTML = `
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" data-btag="all">All <span class="filter-count">${c.builds.length}</span></button>
+      ${allTags.map(t => `<button class="filter-btn" data-btag="${t}">${t}</button>`).join('')}
+    `;
+
+    /* build cards */
+    const grid = document.getElementById('buildsGrid');
+    grid.innerHTML = c.builds.map(b => renderBuild(b, getParam('champion'))).join('');
+
+    /* filter logic */
+    filterEl.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const tag = btn.getAttribute('data-btag');
+        grid.querySelectorAll('.build-detail-card').forEach(card => {
+          const cardTags = card.querySelector('.build-tags')?.textContent || '';
+          card.style.display = (tag === 'all' || cardTags.includes(tag)) ? '' : 'none';
+        });
+      });
+    });
+
+    /* upvote buttons */
+    grid.querySelectorAll('.upvote-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id      = btn.getAttribute('data-build');
+        const countEl = document.getElementById('vote-' + id);
+        if (!countEl) return;
+        const voted   = btn.classList.toggle('voted');
+        const n       = parseInt(countEl.textContent, 10);
+        countEl.textContent = voted ? n + 1 : n - 1;
+        btn.style.transform = voted ? 'scale(1.3)' : '';
+        if (voted) setTimeout(() => { btn.style.transform = ''; }, 200);
+      });
+    });
+
+    /* comment toggles */
+    grid.querySelectorAll('.build-comments-toggle').forEach(toggle => {
+      const handler = () => {
+        const id      = toggle.id.replace('toggle-', '');
+        const section = document.getElementById('comments-' + id);
+        if (!section) return;
+        const open = section.classList.toggle('open');
+        toggle.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+      };
+      toggle.addEventListener('click', handler);
+      toggle.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } });
+    });
+  }
+
+  function renderAugmentsTab(c) {
+    const listEl = document.getElementById('augmentsFullList');
+    listEl.innerHTML = c.augments.map(aug => `
+      <div class="augment-full-item">
+        <div class="augment-full-header">
+          <div class="augment-full-left">
+            <span class="augment-full-rank ${aug.rank <= 2 ? 'top' : ''}">${aug.rank}</span>
+            <div>
+              <div class="augment-full-name">${aug.name}</div>
+              <div class="augment-full-desc">${aug.desc}</div>
+            </div>
+          </div>
+          <span class="tier-badge ${tierClass(aug.tier)}">${aug.tier.charAt(0).toUpperCase() + aug.tier.slice(1)}</span>
+        </div>
+        <div class="augment-full-vote-row">
+          <div class="augment-full-bar-wrap">
+            <div class="progress-bar">
+              <div class="progress-fill ${tierBarClass(aug.tier) === 'prismatic' ? '' : tierBarClass(aug.tier) === 'gold' ? 'progress-fill--lux' : ''}"
+                   data-width="${aug.pct}"
+                   style="background:${aug.tier === 'prismatic' ? 'linear-gradient(90deg,#c084fc,#f472b6)' : aug.tier === 'gold' ? 'linear-gradient(90deg,#c89b3c,#e5c472)' : 'linear-gradient(90deg,#64748b,#94a3b8)'}">
+              </div>
+            </div>
+          </div>
+          <span style="font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--text-secondary);min-width:70px;text-align:right;">
+            ${aug.votes.toLocaleString()} votes
+          </span>
+        </div>
+      </div>
+    `).join('');
+
+    /* Animate bars when tab becomes visible */
+    setTimeout(() => {
+      listEl.querySelectorAll('.progress-fill[data-width]').forEach(bar => {
+        bar.style.width = bar.getAttribute('data-width') + '%';
+      });
+    }, 100);
+  }
+
+  function renderAboutTab(c) {
+    document.getElementById('aboutOverview').textContent = c.about.overview;
+
+    const sl = document.getElementById('strengthsList');
+    sl.innerHTML = c.about.strengths.map(s => `<li>${s}</li>`).join('');
+
+    const wl = document.getElementById('weaknessesList');
+    wl.innerHTML = c.about.weaknesses.map(w => `<li>${w}</li>`).join('');
+
+    const tl = document.getElementById('tipsList');
+    tl.innerHTML = c.about.tips.map(t => `<li>${t}</li>`).join('');
+  }
+
+  /* ── Tab Switching ─────────────────────────────────────── */
+  function initTabs(champKey) {
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels  = document.querySelectorAll('.tab-panel');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+
+        buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        panels.forEach(p  => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById('tab-' + tab)?.classList.add('active');
+
+        /* Animate augment bars when augments tab opens */
+        if (tab === 'augments') {
+          setTimeout(() => {
+            document.querySelectorAll('#augmentsFullList .progress-fill[data-width]').forEach(bar => {
+              bar.style.width = bar.getAttribute('data-width') + '%';
+            });
+          }, 50);
+        }
+      });
+    });
+  }
+
+  /* ── Init ──────────────────────────────────────────────── */
+  (function init() {
+    const key  = (getParam('champion') || '').toLowerCase();
+    const champ = CHAMPIONS[key];
+
+    if (!champ) {
+      /* Unknown champion — redirect back to champions list */
+      window.location.href = 'champions.html';
+      return;
+    }
+
+    renderHero(champ);
+    renderBuildsTab(champ);
+    renderAugmentsTab(champ);
+    renderAboutTab(champ);
+    initTabs(key);
+  })();
+
+  </script>
+</body>
+</html>

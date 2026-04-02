@@ -319,3 +319,31 @@ function initParticles() {
     }
   });
 }
+
+/* ============================================================
+   GLOBAL NAV SEARCH — redirect to builds page on non-builds pages
+   (On builds.html the inline script handles search directly)
+============================================================ */
+(function initNavSearch() {
+  const input = document.getElementById('navSearch');
+  const btn   = document.getElementById('navSearchBtn');
+  if (!input) return;
+
+  const isBuildsPage = window.location.pathname.includes('builds.html');
+
+  function doSearch() {
+    const q = input.value.trim();
+    if (!q) return;
+    if (isBuildsPage) {
+      // Let the inline script on builds.html handle it via its own listener
+      return;
+    }
+    window.location.href = 'builds.html?search=' + encodeURIComponent(q);
+  }
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') doSearch();
+  });
+
+  if (btn) btn.addEventListener('click', doSearch);
+})();

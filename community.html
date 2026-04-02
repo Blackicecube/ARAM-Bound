@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community — ARAM Bound | ARAM Mayhem Discussions</title>
+  <meta name="description" content="Join the ARAM Bound community. Discuss ARAM Mayhem builds, strategies, and champion picks with other Howling Abyss players." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       NAVIGATION
+  ==================================================== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-icon">⚔</span>
+        <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"     class="nav-link"        id="nav-home">Home</a></li>
+        <li><a href="champions.html" class="nav-link"        id="nav-champions">Champions</a></li>
+        <li><a href="builds.html"    class="nav-link"        id="nav-builds">Builds</a></li>
+        <li><a href="community.html" class="nav-link active" id="nav-community">Community</a></li>
+      </ul>
+      <!-- Global search -->
+      <div class="nav-search-wrap" id="navSearchWrap">
+        <input type="search" class="nav-search-input" id="navSearch" placeholder="Search builds…" autocomplete="off" aria-label="Search all builds" />
+        <button type="button" class="nav-search-submit" id="navSearchBtn" aria-label="Search">&#x1F50D;</button>
+      </div>
+      <div class="nav-actions">
+        <a href="create.html" class="btn btn-primary" id="nav-submit-btn">+ Submit Build</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================
+       PAGE HERO
+  ==================================================== -->
+  <header class="page-hero" id="page-hero">
+    <div class="page-hero-ornament page-hero-ornament--left"></div>
+    <div class="page-hero-ornament page-hero-ornament--right"></div>
+    <div class="page-hero-content">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="page-breadcrumb-sep">›</span>
+        <span>Community</span>
+      </nav>
+      <h1 class="page-hero-title">Community Discussions</h1>
+      <p class="page-hero-sub">
+        Talk builds, share clips, debate the meta, and connect with fellow
+        ARAM Mayhem players on the Howling Abyss.
+      </p>
+    </div>
+  </header>
+
+  <!-- ===================================================
+       COMMUNITY STATS BAR
+  ==================================================== -->
+  <div class="community-stats-bar" id="commStatsBar">
+    <div class="comm-stat">
+      <span class="comm-stat-num">1,204</span>
+      <span class="comm-stat-label">Total Threads</span>
+    </div>
+    <div class="comm-stat">
+      <span class="comm-stat-num">8,341</span>
+      <span class="comm-stat-label">Total Replies</span>
+    </div>
+    <div class="comm-stat">
+      <span class="comm-stat-num">312</span>
+      <span class="comm-stat-label">Active Members</span>
+    </div>
+    <div class="comm-stat">
+      <span class="comm-stat-num">47</span>
+      <span class="comm-stat-label">New Today</span>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       STICKY FILTER BAR
+  ==================================================== -->
+  <div class="filter-bar-wrapper" id="filter-bar-wrapper">
+    <div class="filter-bar" id="filterBar" role="group" aria-label="Filter threads by category">
+      <span class="filter-label">Category:</span>
+      <button class="filter-btn active" data-cat="all"      id="cat-all">All <span class="filter-count">10</span></button>
+      <button class="filter-btn"        data-cat="general"  id="cat-general">
+        <span style="color:var(--ice);">●</span> General <span class="filter-count">3</span>
+      </button>
+      <button class="filter-btn"        data-cat="meta"     id="cat-meta">
+        <span style="color:var(--gold);">●</span> Meta <span class="filter-count">3</span>
+      </button>
+      <button class="filter-btn"        data-cat="champion" id="cat-champion">
+        <span style="color:#a78bfa;">●</span> Champion-Specific <span class="filter-count">2</span>
+      </button>
+      <button class="filter-btn"        data-cat="humor"    id="cat-humor">
+        <span style="color:#34d399;">●</span> Humor <span class="filter-count">2</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       THREAD LIST
+  ==================================================== -->
+  <section class="section" id="community-threads" style="background:var(--bg-surface);">
+    <div class="container">
+
+      <div class="community-cta-bar">
+        <p class="community-thread-count">
+          Showing <strong id="visibleCount">10</strong> threads
+        </p>
+        <a href="create.html" class="btn btn-primary btn-sm" id="new-thread-btn">+ New Thread</a>
+      </div>
+
+      <div class="thread-list" id="threadList">
+
+        <!-- ── 1. PINNED: Welcome / Rules ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-1" data-cat="general" aria-label="View thread: Welcome to ARAM Bound">
+          <div class="thread-stripe cat-general"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">🛡️</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-pin" title="Pinned">📌</span>
+                <span class="thread-title">Welcome to ARAM Bound! Rules &amp; Community Guidelines</span>
+                <span class="thread-cat-badge cat-badge-general">General</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>HolyAbyss</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>3 days ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 4,201 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">5</span>
+              <span class="thread-replies-label">replies</span>
+              <span class="thread-views">📌 Pinned</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 2. HOT: Is Lux broken? ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-2" data-cat="meta" aria-label="View thread: Is Lux broken">
+          <div class="thread-stripe cat-meta"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">🔥</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-hot">🔥 HOT</span>
+                <span class="thread-title">Is Lux actually broken in ARAM Mayhem right now?</span>
+                <span class="thread-cat-badge cat-badge-meta">Meta</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>IceBridgeCarry</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>2 hours ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 1,842 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">43</span>
+              <span class="thread-replies-label">replies</span>
+              <span class="thread-views">🟡 Active</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 3. ARAM Mayhem modifiers ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-3" data-cat="meta" aria-label="View thread: ARAM Mayhem modifier tips">
+          <div class="thread-stripe cat-meta"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">⚡</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">ARAM Mayhem modifier tips — what's the best perk combo?</span>
+                <span class="thread-cat-badge cat-badge-meta">Meta</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>AbyssWalker99</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>Yesterday</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 987 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">61</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 4. Ahri vs Lux ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-4" data-cat="general" aria-label="View thread: Ahri vs Lux">
+          <div class="thread-stripe cat-general"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">❄</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">Ahri vs Lux — Who dominates the Howling Abyss more?</span>
+                <span class="thread-cat-badge cat-badge-general">General</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>NineTailsGG</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>5 hours ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 731 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">28</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 5. What's more fun: Lux Full AP or Support? ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-5" data-cat="meta" aria-label="What is more fun Lux AP or support">
+          <div class="thread-stripe cat-meta"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">💬</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">What's more fun to play: Lux Full AP or Support?</span>
+                <span class="thread-cat-badge cat-badge-meta">Meta</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>IceBridgeCarry</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>3 hours ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 612 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">31</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 6. Best augments for burst mages ── -->
+        <a href="champion-detail.html?champion=ahri" class="thread-card reveal" id="thread-6" data-cat="champion" aria-label="View thread: Best augments for burst mages">
+          <div class="thread-stripe cat-champion"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">✦</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">Best augments for burst mages — Jeweled Gauntlet still king?</span>
+                <span class="thread-cat-badge cat-badge-champion">Champion-Specific</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>GalacticAbyss</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>4 hours ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 528 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">19</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 7. Ahri charm clip compilation ── -->
+        <a href="champion-detail.html?champion=ahri" class="thread-card reveal" id="thread-7" data-cat="champion" aria-label="View thread: Ahri charm clip compilation">
+          <div class="thread-stripe cat-champion"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">🦊</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">Ahri charm into full teamfight wipe — clip compilation thread</span>
+                <span class="thread-cat-badge cat-badge-champion">Champion-Specific</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>NineTailsGG</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>6 hours ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 441 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">22</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 8. Beginner tips ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-8" data-cat="general" aria-label="View thread: Beginner tips">
+          <div class="thread-stripe cat-general"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">💡</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">Beginner tips for surviving your first ARAM Mayhem match</span>
+                <span class="thread-cat-badge cat-badge-general">General</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>HolyAbyss</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>2 days ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 362 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">15</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 9. Lux R one-shot humor ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-9" data-cat="humor" aria-label="View thread: Lux R one-shot humor">
+          <div class="thread-stripe cat-humor"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">😂</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">Lux R one-shotting full-HP targets from spawn — is this normal?? 💀</span>
+                <span class="thread-cat-badge cat-badge-humor">Humor</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>ChaosGremlin</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>8 hours ago</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 891 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">34</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── 10. Cosmic Lux winstreak ── -->
+        <a href="community.html" class="thread-card reveal" id="thread-10" data-cat="humor" aria-label="View thread: Cosmic Lux winstreak">
+          <div class="thread-stripe cat-humor"></div>
+          <div class="thread-inner">
+            <div class="thread-avatar" aria-hidden="true">🌌</div>
+            <div class="thread-body">
+              <div class="thread-title-row">
+                <span class="thread-title">I went 3-0 with Cosmic Ability Haste Lux and I have no regrets 😭</span>
+                <span class="thread-cat-badge cat-badge-humor">Humor</span>
+              </div>
+              <div class="thread-meta">
+                <span class="thread-meta-author">by <strong>GalacticAbyss</strong></span>
+                <span class="thread-meta-sep">·</span>
+                <span>Yesterday</span>
+                <span class="thread-meta-sep">·</span>
+                <span>👁 278 views</span>
+              </div>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-replies">12</span>
+              <span class="thread-replies-label">replies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- No results -->
+        <p class="no-builds-msg" id="noThreadsMsg" style="display:none;">
+          No threads in this category yet. Be the first to start one! ✦
+        </p>
+
+      </div><!-- /thread-list -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- ===================================================
+       START A DISCUSSION CTA
+  ==================================================== -->
+  <section class="submit-cta-section" id="discussion-cta">
+    <div class="container">
+      <div class="submit-cta-inner">
+        <div class="submit-cta-icon">💬</div>
+        <h2 class="submit-cta-title">Have Something to Say?</h2>
+        <p class="submit-cta-sub">
+          Whether it's a hot take on the meta, a funny clip, or genuine build
+          advice — the ARAM Bound community wants to hear it.
+        </p>
+        <a href="create.html" class="btn btn-primary" id="start-thread-btn">Start a Discussion</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FOOTER
+  ==================================================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo" id="footer-logo">
+            <span class="logo-icon">⚔</span>
+            <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+          </a>
+          <p class="footer-tagline">
+            The premier community hub for League of Legends ARAM Mayhem players.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="builds.html">Builds</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="create.html">Submit Build</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Champions</h4>
+          <ul>
+            <li><a href="champion-detail.html?champion=ahri">Ahri Builds</a></li>
+            <li><a href="champion-detail.html?champion=lux">Lux Builds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          ARAM Bound is a fan-made community website not affiliated with Riot Games.
+          League of Legends © Riot Games, Inc. All champion images © Riot Games.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  /* ============================================================
+     COMMUNITY PAGE — Category Filter
+  ============================================================ */
+  'use strict';
+
+  const threads    = Array.from(document.querySelectorAll('.thread-card'));
+  const noMsg      = document.getElementById('noThreadsMsg');
+  const countEl    = document.getElementById('visibleCount');
+
+  document.querySelectorAll('[data-cat]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.getAttribute('data-cat');
+      let visible = 0;
+      threads.forEach(t => {
+        const show = cat === 'all' || t.getAttribute('data-cat') === cat;
+        t.style.display = show ? '' : 'none';
+        // Fix border-radius on visible first/last
+        if (show) visible++;
+      });
+      if (countEl) countEl.textContent = visible;
+      if (noMsg)   noMsg.style.display = visible === 0 ? 'block' : 'none';
+
+      // Reapply corner radii for first/last visible card
+      const visible_threads = threads.filter(t => t.style.display !== 'none');
+      threads.forEach(t => {
+        t.style.borderRadius = '';
+        t.style.borderTopWidth = '';
+      });
+      if (visible_threads.length > 0) {
+        const first = visible_threads[0];
+        const last  = visible_threads[visible_threads.length - 1];
+        first.style.borderRadius = '12px 12px 0 0';
+        first.style.borderTopWidth = '1px';
+        first.querySelector('.thread-stripe').style.borderRadius = '12px 0 0 0';
+        last.style.borderRadius = '0 0 12px 12px';
+        last.querySelector('.thread-stripe').style.borderRadius = '0 0 0 12px';
+        if (visible_threads.length === 1) {
+          first.style.borderRadius = '12px';
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>

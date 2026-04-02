@@ -24,6 +24,11 @@
         <li><a href="builds.html"    class="nav-link active" id="nav-builds">Builds</a></li>
         <li><a href="community.html" class="nav-link"        id="nav-community">Community</a></li>
       </ul>
+      <!-- Global search -->
+      <div class="nav-search-wrap" id="navSearchWrap">
+        <input type="search" class="nav-search-input" id="navSearch" placeholder="Search builds…" autocomplete="off" aria-label="Search all builds" />
+        <button type="button" class="nav-search-submit" id="navSearchBtn" aria-label="Search">&#x1F50D;</button>
+      </div>
       <div class="nav-actions">
         <a href="create.html" class="btn btn-primary" id="nav-submit-btn">+ Submit Build</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -68,46 +73,70 @@
 
   <!-- ===================================================
        STICKY FILTER + SORT BAR
-  ==================================================== -->
-  <div class="builds-control-bar" id="buildsControlBar">
-    <div class="builds-control-inner" id="buildsControlInner">
+  ============================================   <div class="builds-control-bar" id="buildsControlBar">
+    <!-- outer wrapper -->
+    <div class="builds-control-outer">
 
-      <!-- Champion filter -->
+      <!-- Champion dropdown (replaces button group) -->
       <span class="filter-label">Champion:</span>
-      <button class="filter-btn active" data-champ="all"  id="champ-all">All <span class="filter-count">6</span></button>
-      <button class="filter-btn"        data-champ="ahri" id="champ-ahri">
-        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png"
-             alt="" style="width:16px;height:16px;border-radius:4px;margin-right:4px;vertical-align:middle;border:none;" />
-        Ahri <span class="filter-count">3</span>
-      </button>
-      <button class="filter-btn"        data-champ="lux"  id="champ-lux">
-        <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png"
-             alt="" style="width:16px;height:16px;border-radius:4px;margin-right:4px;vertical-align:middle;border:none;" />
-        Lux <span class="filter-count">3</span>
-      </button>
+      <div class="champ-dropdown" id="champDropdown">
+        <button class="champ-dropdown-btn" id="champDropdownBtn" aria-haspopup="listbox" aria-expanded="false">
+          <span class="champ-dd-icon" id="champDdIcon">⚔️</span>
+          <span class="champ-dd-label" id="champDdLabel">All Champions</span>
+          <span class="filter-count" id="champDdCount">6</span>
+          <span class="champ-dd-arrow">▾</span>
+        </button>
+        <ul class="champ-dropdown-list" id="champDropdownList" role="listbox" aria-label="Select champion">
+          <li class="champ-dropdown-item active" data-champ="all" role="option">
+            <span style="font-size:1.1rem;line-height:1;">⚔️</span>
+            <span>All Champions</span>
+            <span class="filter-count">6</span>
+          </li>
+          <li class="champ-dropdown-item" data-champ="ahri" role="option">
+            <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Ahri.png" alt="Ahri" />
+            <span>Ahri</span>
+            <span class="filter-count">3</span>
+          </li>
+          <li class="champ-dropdown-item" data-champ="lux" role="option">
+            <img src="https://ddragon.leagueoflegends.com/cdn/14.8.1/img/champion/Lux.png" alt="Lux" />
+            <span>Lux</span>
+            <span class="filter-count">3</span>
+          </li>
+        </ul>
+      </div>
 
       <div class="control-divider"></div>
 
-      <!-- Playstyle tag filter -->
-      <span class="filter-label">Playstyle:</span>
-      <button class="filter-btn active" data-tag="all"          id="tag-all">All Styles</button>
-      <button class="filter-btn"        data-tag="burst"        id="tag-burst">Burst</button>
-      <button class="filter-btn"        data-tag="poke"         id="tag-poke">Poke</button>
-      <button class="filter-btn"        data-tag="support"      id="tag-support">Support</button>
-      <button class="filter-btn"        data-tag="ability-haste" id="tag-haste">Ability Haste</button>
+      <!-- Playstyle: label + horizontally-scrollable pill strip -->
+      <span class="filter-label" style="flex-shrink:0;">Playstyle:</span>
+      <div class="playstyle-scroll-wrap">
+        <div class="playstyle-scroll" id="playstyleScroll">
+          <button class="filter-btn filter-btn-sm active" data-tag="all"           id="tag-all">All Styles</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="burst"         id="tag-burst">Burst</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="poke"          id="tag-poke">Poke</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="support"       id="tag-support">Support</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="ability-haste" id="tag-haste">Ability Haste</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="tank"          id="tag-tank">Tank</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="brawler"       id="tag-brawler">Brawler</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="stealth"       id="tag-stealth">Stealth</button>
+          <button class="filter-btn filter-btn-sm"        data-tag="exodia"        id="tag-exodia">⚡ Exodia</button>
+        </div>
+      </div>
 
-      <div class="control-divider"></div>
+      <!-- RIGHT: Sort — always visible, never clips -->
+      <div class="builds-sort-wrap">
+        <div class="control-divider"></div>
+        <span class="filter-label">Sort:</span>
+        <select class="sort-select" id="sortSelect" aria-label="Sort builds">
+          <option value="votes">Top Rated</option>
+          <option value="spicy">🌶️ Spicy</option>
+          <option value="comments">Most Comments</option>
+        </select>
+      </div>
 
-      <!-- Sort -->
-      <span class="filter-label">Sort:</span>
-      <select class="sort-select" id="sortSelect" aria-label="Sort builds">
-        <option value="votes">Top Rated</option>
-        <option value="rating">Highest Rated ★</option>
-        <option value="comments">Most Comments</option>
-      </select>
+    </div><!-- /builds-control-outer -->
+  </div><!-- /builds-control-bar -->
 
-    </div>
-  </div>
 
   <!-- ===================================================
        BUILDS MAIN CONTENT
@@ -135,6 +164,7 @@
           data-votes="234"
           data-rating="4.7"
           data-comments="3"
+          data-spicy="0"
         >
           <div class="feed-featured-ribbon">⭐ Community Favourite</div>
           <div class="feed-card-top">
@@ -146,9 +176,16 @@
                 <div class="feed-champ-roles">Mage · Support</div>
               </div>
             </div>
-            <div class="feed-vote">
-              <button class="feed-vote-btn" data-build="lux-1" aria-label="Upvote">▲</button>
-              <span class="feed-vote-count" id="fv-lux-1">234</span>
+            <div class="feed-card-votes">
+              <div class="feed-spicy-vote">
+                <button class="feed-spicy-btn" data-spicy-build="lux-1" aria-label="Mark as Spicy">🌶️</button>
+                <span class="feed-spicy-count" id="fsp-lux-1">0</span>
+                <div class="feed-spice-level" id="fsl-lux-1"></div>
+              </div>
+              <div class="feed-vote">
+                <button class="feed-vote-btn" data-build="lux-1" aria-label="Upvote">▲</button>
+                <span class="feed-vote-count" id="fv-lux-1">234</span>
+              </div>
             </div>
           </div>
           <div class="feed-card-body">
@@ -193,6 +230,7 @@
           data-votes="198"
           data-rating="4.2"
           data-comments="3"
+          data-spicy="0"
         >
           <div class="feed-card-top">
             <div class="feed-champ-badge">
@@ -203,9 +241,16 @@
                 <div class="feed-champ-roles">Mage · Assassin</div>
               </div>
             </div>
-            <div class="feed-vote">
-              <button class="feed-vote-btn" data-build="ahri-1" aria-label="Upvote">▲</button>
-              <span class="feed-vote-count" id="fv-ahri-1">198</span>
+            <div class="feed-card-votes">
+              <div class="feed-spicy-vote">
+                <button class="feed-spicy-btn" data-spicy-build="ahri-1" aria-label="Mark as Spicy">🌶️</button>
+                <span class="feed-spicy-count" id="fsp-ahri-1">0</span>
+                <div class="feed-spice-level" id="fsl-ahri-1"></div>
+              </div>
+              <div class="feed-vote">
+                <button class="feed-vote-btn" data-build="ahri-1" aria-label="Upvote">▲</button>
+                <span class="feed-vote-count" id="fv-ahri-1">198</span>
+              </div>
             </div>
           </div>
           <div class="feed-card-body">
@@ -250,6 +295,7 @@
           data-votes="156"
           data-rating="4.2"
           data-comments="2"
+          data-spicy="3"
         >
           <div class="feed-card-top">
             <div class="feed-champ-badge">
@@ -260,9 +306,16 @@
                 <div class="feed-champ-roles">Mage · Support</div>
               </div>
             </div>
-            <div class="feed-vote">
-              <button class="feed-vote-btn" data-build="lux-2" aria-label="Upvote">▲</button>
-              <span class="feed-vote-count" id="fv-lux-2">156</span>
+            <div class="feed-card-votes">
+              <div class="feed-spicy-vote">
+                <button class="feed-spicy-btn" data-spicy-build="lux-2" aria-label="Mark as Spicy">🌶️</button>
+                <span class="feed-spicy-count has-votes" id="fsp-lux-2">230</span>
+                <div class="feed-spice-level" id="fsl-lux-2" title="Triple Spicy!">🌶️🌶️🌶️</div>
+              </div>
+              <div class="feed-vote">
+                <button class="feed-vote-btn" data-build="lux-2" aria-label="Upvote">▲</button>
+                <span class="feed-vote-count" id="fv-lux-2">156</span>
+              </div>
             </div>
           </div>
           <div class="feed-card-body">
@@ -307,6 +360,7 @@
           data-votes="156"
           data-rating="4.5"
           data-comments="2"
+          data-spicy="1"
         >
           <div class="feed-card-top">
             <div class="feed-champ-badge">
@@ -317,9 +371,16 @@
                 <div class="feed-champ-roles">Mage · Assassin</div>
               </div>
             </div>
-            <div class="feed-vote">
-              <button class="feed-vote-btn" data-build="ahri-2" aria-label="Upvote">▲</button>
-              <span class="feed-vote-count" id="fv-ahri-2">156</span>
+            <div class="feed-card-votes">
+              <div class="feed-spicy-vote">
+                <button class="feed-spicy-btn" data-spicy-build="ahri-2" aria-label="Mark as Spicy">🌶️</button>
+                <span class="feed-spicy-count" id="fsp-ahri-2">0</span>
+                <div class="feed-spice-level" id="fsl-ahri-2"></div>
+              </div>
+              <div class="feed-vote">
+                <button class="feed-vote-btn" data-build="ahri-2" aria-label="Upvote">▲</button>
+                <span class="feed-vote-count" id="fv-ahri-2">156</span>
+              </div>
             </div>
           </div>
           <div class="feed-card-body">
@@ -364,6 +425,7 @@
           data-votes="134"
           data-rating="3.9"
           data-comments="1"
+          data-spicy="2"
         >
           <div class="feed-card-top">
             <div class="feed-champ-badge">
@@ -374,9 +436,16 @@
                 <div class="feed-champ-roles">Mage · Support</div>
               </div>
             </div>
-            <div class="feed-vote">
-              <button class="feed-vote-btn" data-build="lux-3" aria-label="Upvote">▲</button>
-              <span class="feed-vote-count" id="fv-lux-3">134</span>
+            <div class="feed-card-votes">
+              <div class="feed-spicy-vote">
+                <button class="feed-spicy-btn" data-spicy-build="lux-3" aria-label="Mark as Spicy">🌶️</button>
+                <span class="feed-spicy-count has-votes" id="fsp-lux-3">120</span>
+                <div class="feed-spice-level" id="fsl-lux-3" title="Double Spicy!">🌶️🌶️</div>
+              </div>
+              <div class="feed-vote">
+                <button class="feed-vote-btn" data-build="lux-3" aria-label="Upvote">▲</button>
+                <span class="feed-vote-count" id="fv-lux-3">134</span>
+              </div>
             </div>
           </div>
           <div class="feed-card-body">
@@ -421,6 +490,7 @@
           data-votes="112"
           data-rating="3.8"
           data-comments="1"
+          data-spicy="2"
         >
           <div class="feed-card-top">
             <div class="feed-champ-badge">
@@ -431,9 +501,16 @@
                 <div class="feed-champ-roles">Mage · Assassin</div>
               </div>
             </div>
-            <div class="feed-vote">
-              <button class="feed-vote-btn" data-build="ahri-3" aria-label="Upvote">▲</button>
-              <span class="feed-vote-count" id="fv-ahri-3">112</span>
+            <div class="feed-card-votes">
+              <div class="feed-spicy-vote">
+                <button class="feed-spicy-btn" data-spicy-build="ahri-3" aria-label="Mark as Spicy">🌶️</button>
+                <span class="feed-spicy-count has-votes" id="fsp-ahri-3">68</span>
+                <div class="feed-spice-level" id="fsl-ahri-3" title="Spicy!">🌶️</div>
+              </div>
+              <div class="feed-vote">
+                <button class="feed-vote-btn" data-build="ahri-3" aria-label="Upvote">▲</button>
+                <span class="feed-vote-count" id="fv-ahri-3">112</span>
+              </div>
             </div>
           </div>
           <div class="feed-card-body">
@@ -581,9 +658,8 @@
     const grid = document.getElementById('buildsGrid');
     if (!grid) return;
     const sorted = cards.slice().sort((a, b) => {
-      const v = key => parseFloat(a.getAttribute('data-' + key)) - parseFloat(b.getAttribute('data-' + key));
       if (sortMode === 'votes')    return parseFloat(b.getAttribute('data-votes'))    - parseFloat(a.getAttribute('data-votes'));
-      if (sortMode === 'rating')   return parseFloat(b.getAttribute('data-rating'))   - parseFloat(a.getAttribute('data-rating'));
+      if (sortMode === 'spicy')    return parseFloat(b.getAttribute('data-spicy'))    - parseFloat(a.getAttribute('data-spicy'));
       if (sortMode === 'comments') return parseFloat(b.getAttribute('data-comments')) - parseFloat(a.getAttribute('data-comments'));
       return 0;
     });
@@ -593,15 +669,57 @@
     applyFilters();
   }
 
-  /* ── Champion filter buttons ──────────────────────────── */
-  document.querySelectorAll('[data-champ]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-champ]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeChamp = btn.getAttribute('data-champ');
-      applyFilters();
+  /* ── Champion Dropdown ────────────────────────────────── */
+  const champDD      = document.getElementById('champDropdown');
+  const champDDBut   = document.getElementById('champDropdownBtn');
+  const champDDList  = document.getElementById('champDropdownList');
+  const champDDIcon  = document.getElementById('champDdIcon');
+  const champDDLabel = document.getElementById('champDdLabel');
+  const champDDCount = document.getElementById('champDdCount');
+
+  function selectChamp(item) {
+    const champ   = item.getAttribute('data-champ');
+    const imgEl   = item.querySelector('img');
+    const labelEl = item.querySelectorAll('span')[0];
+    const countEl = item.querySelector('.filter-count');
+
+    if (champDDIcon) {
+      champDDIcon.innerHTML = imgEl
+        ? `<img src="${imgEl.src}" alt="${imgEl.alt}" style="width:22px;height:22px;border-radius:4px;object-fit:cover;display:block;" />`
+        : '⚔️';
+    }
+    if (champDDLabel && labelEl) champDDLabel.textContent = labelEl.textContent.trim();
+    if (champDDCount && countEl) champDDCount.textContent = countEl.textContent.trim();
+
+    champDDList.querySelectorAll('.champ-dropdown-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    activeChamp = champ;
+    applyFilters();
+    champDD.classList.remove('open');
+    if (champDDBut) champDDBut.setAttribute('aria-expanded', 'false');
+  }
+
+  if (champDDBut) {
+    champDDBut.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = champDD.classList.toggle('open');
+      champDDBut.setAttribute('aria-expanded', String(isOpen));
     });
+  }
+
+  if (champDDList) {
+    champDDList.querySelectorAll('.champ-dropdown-item').forEach(item => {
+      item.addEventListener('click', () => selectChamp(item));
+    });
+  }
+
+  document.addEventListener('click', () => {
+    if (champDD) {
+      champDD.classList.remove('open');
+      if (champDDBut) champDDBut.setAttribute('aria-expanded', 'false');
+    }
   });
+
 
   /* ── Tag filter buttons ───────────────────────────────── */
   document.querySelectorAll('[data-tag]').forEach(btn => {
@@ -644,6 +762,71 @@
       btn.closest('[data-votes]')?.setAttribute('data-votes', voted ? n + 1 : n - 1);
     });
   });
+
+  /* ── Spicy buttons 🌶️ + Spice Level ────────────────── */
+  function updateSpiceLevel(key, count) {
+    const el = document.getElementById('fsl-' + key);
+    if (!el) return;
+    if (count >= 200) {
+      el.textContent = '🌶️🌶️🌶️';
+      el.title = 'Triple Spicy! (200+ spice votes)';
+    } else if (count >= 100) {
+      el.textContent = '🌶️🌶️';
+      el.title = 'Double Spicy! (100+ spice votes)';
+    } else if (count >= 50) {
+      el.textContent = '🌶️';
+      el.title = 'Spicy! (50+ spice votes)';
+    } else {
+      el.textContent = '';
+      el.title = '';
+    }
+  }
+
+  // Init spice levels on page load from pre-seeded counts
+  ['lux-1','ahri-1','lux-2','ahri-2','lux-3','ahri-3'].forEach(key => {
+    const c = document.getElementById('fsp-' + key);
+    if (c) updateSpiceLevel(key, parseInt(c.textContent, 10) || 0);
+  });
+
+  document.querySelectorAll('.feed-spicy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key     = btn.getAttribute('data-spicy-build');
+      const countEl = document.getElementById('fsp-' + key);
+      if (!countEl) return;
+      const spiced = btn.classList.toggle('spiced');
+      const n      = parseInt(countEl.textContent, 10);
+      const newN   = spiced ? n + 1 : Math.max(0, n - 1);
+      countEl.textContent = newN;
+      countEl.classList.toggle('has-votes', newN > 0);
+      updateSpiceLevel(key, newN);
+      // Nudge card's data-spicy for live sort
+      const card = btn.closest('[data-spicy]');
+      if (card) {
+        const cur = parseFloat(card.getAttribute('data-spicy'));
+        card.setAttribute('data-spicy', spiced ? cur + 0.5 : Math.max(0, cur - 0.5));
+      }
+    });
+  });
+
+
+  /* ── Nav search wired to builds filter ──────────────────── */
+  const navSearchInput = document.getElementById('navSearch');
+  if (navSearchInput) {
+    navSearchInput.addEventListener('input', () => {
+      searchQuery = navSearchInput.value;
+      if (searchInput) searchInput.value = navSearchInput.value;
+      applyFilters();
+    });
+  }
+
+  /* ── Read ?search= from URL on page load ─────────────────── */
+  const urlQ = new URLSearchParams(window.location.search).get('search');
+  if (urlQ) {
+    searchQuery = urlQ;
+    if (searchInput)    { searchInput.value    = urlQ; }
+    if (navSearchInput) { navSearchInput.value = urlQ; }
+    applyFilters();
+  }
 
   </script>
 </body>

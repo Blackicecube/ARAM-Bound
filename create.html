@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Build — ARAM Bound | ARAM Mayhem Build Editor</title>
+  <meta name="description" content="Create and submit an ARAM Mayhem build guide: overview, item paths with alternate routes, and situational notes." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <span class="logo-icon">⚔</span>
+        <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"     class="nav-link"        id="nav-home">Home</a></li>
+        <li><a href="champions.html" class="nav-link"        id="nav-champions">Champions</a></li>
+        <li><a href="builds.html"    class="nav-link active" id="nav-builds">Builds</a></li>
+        <li><a href="community.html" class="nav-link"        id="nav-community">Community</a></li>
+      </ul>
+      <div class="nav-search-wrap" id="navSearchWrap">
+        <input type="search" class="nav-search-input" id="navSearch" placeholder="Search builds…" autocomplete="off" aria-label="Search all builds" />
+        <button type="button" class="nav-search-submit" id="navSearchBtn" aria-label="Search">&#x1F50D;</button>
+      </div>
+      <div class="nav-actions">
+        <a href="create.html" class="btn btn-primary" id="nav-submit-btn">+ Submit Build</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero" id="page-hero">
+    <div class="page-hero-ornament page-hero-ornament--left"></div>
+    <div class="page-hero-ornament page-hero-ornament--right"></div>
+    <div class="page-hero-content">
+      <nav class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="page-breadcrumb-sep">›</span>
+        <a href="builds.html">Builds</a>
+        <span class="page-breadcrumb-sep">›</span>
+        <span>Submit Build</span>
+      </nav>
+      <h1 class="page-hero-title">Create a Build Guide</h1>
+      <p class="page-hero-sub">
+        Draft the same sections players see on a published guide. Start with your overview
+        and core item path — more sections will plug in here later.
+      </p>
+    </div>
+  </header>
+
+  <main class="bd-page create-page" id="create-main">
+    <form id="createBuildForm" class="create-form" novalidate>
+
+      <!-- OVERVIEW -->
+      <section class="bd-section create-section reveal" id="create-overview">
+        <h2 class="bd-section-title">📋 Overview</h2>
+        <p class="create-intro">
+          This box is where your <strong>published Overview</strong> will come from. Start by writing a
+          <strong>quick summary of your build</strong> and <strong>what you aim to accomplish during gameplay</strong>
+          (for example: burst squishies, peel for your carry, or constant poke). Replace this working draft with your
+          final wording when you are ready — it will appear as the italic summary on your guide.
+        </p>
+        <label class="create-field">
+          <span class="create-field-label">Overview text</span>
+          <textarea
+            id="overviewSummary"
+            name="overview"
+            class="create-textarea create-textarea--overview"
+            rows="7"
+            spellcheck="true"
+            placeholder="Write a quick summary of your build and its stated goal during gameplay (what you want to achieve in fights and how the build supports that). This placeholder is replaced by your real overview text when you publish."
+          ></textarea>
+        </label>
+      </section>
+
+      <!-- ITEM PATHS -->
+      <section class="bd-section create-section reveal" id="create-items">
+        <h2 class="bd-section-title">⚔ Item Build Path</h2>
+        <p class="create-intro">
+          Build your <strong>core item order</strong> with live icons from Data Dragon. Add
+          <strong>alternate paths</strong> when a different order fits specific matchups (for example
+          against tanks or a pure ranged comp). Hover an icon to see the full item name.
+        </p>
+        <p id="create-items-error" class="create-error" role="alert" hidden></p>
+
+        <div class="create-path-block" data-path-key="main">
+          <div class="bd-subsection-title">Core path</div>
+          <label class="create-field">
+            <span class="create-field-label">When is this path best?</span>
+            <textarea
+              name="main_usecase"
+              class="create-textarea"
+              rows="3"
+              placeholder="Describe the team comps or game states where this core order is the right default (e.g. balanced enemy teams, standard poke windows)."
+            ></textarea>
+          </label>
+          <label class="create-field">
+            <span class="create-field-label">Situational notes (optional)</span>
+            <input
+              type="text"
+              name="main_notes"
+              class="create-input"
+              placeholder="e.g. Against heavy MR, swap Cryptbloom → Void Staff earlier."
+            />
+          </label>
+          <div class="bd-subsection-title" style="margin-top: 4px;">Items (max 6)</div>
+          <div class="create-item-row-host">
+            <p class="create-loading">Loading item data…</p>
+          </div>
+          <div class="create-item-search">
+            <input
+              type="search"
+              class="create-item-search-input"
+              placeholder="Search items by name to add to this path…"
+              autocomplete="off"
+              aria-label="Search items to add to core path"
+            />
+            <div class="create-item-search-results" hidden></div>
+          </div>
+        </div>
+
+        <div id="create-alt-paths" class="create-alt-paths" aria-live="polite"></div>
+
+        <button type="button" class="btn btn-outline" id="addAltPath" disabled>
+          + Add alternate build path
+        </button>
+      </section>
+
+      <div class="create-form-actions">
+        <a href="builds.html" class="btn btn-ghost">Cancel</a>
+        <button type="submit" class="btn btn-primary" id="createSaveBtn">Save draft (local preview coming soon)</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo" id="footer-logo">
+            <span class="logo-icon">⚔</span>
+            <span class="logo-text">ARAM <span class="logo-accent">BOUND</span></span>
+          </a>
+          <p class="footer-tagline">
+            The premier community hub for League of Legends ARAM Mayhem players.
+            Share builds, discuss strategies, and conquer the Howling Abyss.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="builds.html">Builds</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="create.html">Submit Build</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Champions</h4>
+          <ul>
+            <li><a href="champion-detail.html?champion=ahri">Ahri Builds</a></li>
+            <li><a href="champion-detail.html?champion=lux">Lux Builds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          ARAM Bound is a fan-made community website and is not affiliated with or endorsed by Riot Games.
+          League of Legends and all related marks are trademarks of Riot Games, Inc.
+          All champion images © Riot Games.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/create-build.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('createBuildForm');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

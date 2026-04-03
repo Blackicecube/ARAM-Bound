@@ -131,6 +131,194 @@
         </button>
       </section>
 
+      <!-- AUGMENTS (Top picks per tier) -->
+      <section class="bd-section create-section reveal" id="create-augments">
+        <h2 class="bd-section-title">✦ Favorite Augments</h2>
+        <p class="create-intro">
+          Pick your <strong>top 4 Prismatic</strong>, <strong>top 4 Gold</strong>, and <strong>top 4 Silver</strong>
+          augments for this build. Each slot pulls from the official ARAM: Mayhem augment list.
+        </p>
+        <p class="create-intro create-intro--link">
+          <a
+            href="https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem/Augments"
+            target="_blank"
+            rel="noopener noreferrer"
+          >ARAM: Mayhem augments — League of Legends Wiki</a>
+        </p>
+        <p id="create-augments-error" class="create-error" role="alert" hidden></p>
+
+        <!-- Prismatic -->
+        <div class="create-augment-group" data-tier="prismatic">
+          <div class="create-augment-group-head">
+            <h3 class="create-augment-group-title">Top 4 Prismatic</h3>
+          </div>
+          <div class="create-augment-grid" aria-label="Top Prismatic augments">
+            <div class="create-augment-card" data-augment-slot="p1">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <span class="create-augment-pick-label">Prismatic #1</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Prismatic augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="p2">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <span class="create-augment-pick-label">Prismatic #2</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Prismatic augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="p3">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <span class="create-augment-pick-label">Prismatic #3</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Prismatic augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="p4">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <span class="create-augment-pick-label">Prismatic #4</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Prismatic augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gold -->
+        <div class="create-augment-group" data-tier="gold">
+          <div class="create-augment-group-head">
+            <h3 class="create-augment-group-title">Top 4 Gold</h3>
+          </div>
+          <div class="create-augment-grid" aria-label="Top Gold augments">
+            <div class="create-augment-card" data-augment-slot="g1">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <span class="create-augment-pick-label">Gold #1</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Gold augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="g2">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <span class="create-augment-pick-label">Gold #2</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Gold augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="g3">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <span class="create-augment-pick-label">Gold #3</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Gold augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="g4">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <span class="create-augment-pick-label">Gold #4</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Gold augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Silver -->
+        <div class="create-augment-group" data-tier="silver">
+          <div class="create-augment-group-head">
+            <h3 class="create-augment-group-title">Top 4 Silver</h3>
+          </div>
+          <div class="create-augment-grid" aria-label="Top Silver augments">
+            <div class="create-augment-card" data-augment-slot="s1">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <span class="create-augment-pick-label">Silver #1</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Silver augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="s2">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <span class="create-augment-pick-label">Silver #2</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Silver augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="s3">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <span class="create-augment-pick-label">Silver #3</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Silver augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+            <div class="create-augment-card" data-augment-slot="s4">
+              <div class="create-augment-card-head">
+                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <span class="create-augment-pick-label">Silver #4</span>
+              </div>
+              <div class="create-augment-card-body">
+                <p class="create-augment-name" data-role="name">Choose a Silver augment…</p>
+                <select class="create-augment-select" data-role="select">
+                  <option value="">Select augment…</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="create-form-actions">
         <a href="builds.html" class="btn btn-ghost">Cancel</a>
         <button type="submit" class="btn btn-primary" id="createSaveBtn">Save draft (local preview coming soon)</button>

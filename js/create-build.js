@@ -92,6 +92,106 @@ function filterItems(query) {
   return out;
 }
 
+// ============================================================
+//  AUGMENT POOL (from mayhem-augment-pool.json)
+// ============================================================
+
+/** @type {{ silver: string[], gold: string[], prismatic: string[] } | null} */
+let augmentPoolByTier = null;
+
+const AUGMENT_POOL_URL = 'js/mayhem-augment-pool.json';
+
+async function loadAugmentPool() {
+  const res = await fetch(AUGMENT_POOL_URL);
+  if (!res.ok) throw new Error('augment pool');
+  /** @type {{ name: string, tier: string }[]} */
+  const rows = await res.json();
+  augmentPoolByTier = { silver: [], gold: [], prismatic: [] };
+  rows.forEach((r) => {
+    const t = r.tier;
+    if (t === 'silver') augmentPoolByTier.silver.push(r.name);
+    else if (t === 'gold') augmentPoolByTier.gold.push(r.name);
+    else if (t === 'prismatic') augmentPoolByTier.prismatic.push(r.name);
+  });
+  // Keep options sorted for selects
+  augmentPoolByTier.silver.sort((a, b) => a.localeCompare(b));
+  augmentPoolByTier.gold.sort((a, b) => a.localeCompare(b));
+  augmentPoolByTier.prismatic.sort((a, b) => a.localeCompare(b));
+}
+
+/**
+ * Builds simple initials for a text label (icon substitute).
+ * @param {string} name
+ */
+function initialsForAugment(name) {
+  const parts = name.split(/\s+/).filter(Boolean);
+  if (!parts.length) return '';
+  const first = parts[0][0] || '';
+  const second = parts.length > 1 ? parts[1][0] || '' : '';
+  return (first + second).toUpperCase();
+}
+
+/**
+ * @param {HTMLSelectElement} select
+ */
+function applyAugmentSelection(select) {
+  const card = select.closest('.create-augment-card');
+  if (!card) return;
+  const nameEl = card.querySelector('[data-role="name"]');
+  const iconEl = card.querySelector('[data-role="icon"]');
+  const value = select.value;
+  if (!nameEl) return;
+  if (!value) {
+    nameEl.textContent = select.getAttribute('data-placeholder') || 'Choose an augment…';
+    if (iconEl) iconEl.textContent = '';
+    return;
+  }
+  nameEl.textContent = value;
+  if (iconEl) iconEl.textContent = initialsForAugment(value);
+}
+
+function initAugmentSection() {
+  const gridRoot = document.getElementById('create-augments');
+  const err = document.getElementById('create-augments-error');
+  if (!gridRoot) return;
+
+  loadAugmentPool()
+    .then(() => {
+      /** @type {NodeListOf<HTMLElement>} */
+      const groups = gridRoot.querySelectorAll('.create-augment-group');
+      groups.forEach((group) => {
+        const tier = group.getAttribute('data-tier');
+        /** @type {'silver'|'gold'|'prismatic'} */
+        const t = tier === 'gold' || tier === 'prismatic' ? tier : 'silver';
+        const pool = augmentPoolByTier && augmentPoolByTier[t] ? augmentPoolByTier[t] : [];
+        /** @type {NodeListOf<HTMLSelectElement>} */
+        const selects = group.querySelectorAll('.create-augment-select');
+        selects.forEach((sel) => {
+          // Cache placeholder for reset
+          if (!sel.getAttribute('data-placeholder')) {
+            const card = sel.closest('.create-augment-card');
+            const nameEl = card && card.querySelector('[data-role="name"]');
+            if (nameEl) sel.setAttribute('data-placeholder', nameEl.textContent || '');
+          }
+          // Populate options
+          pool.forEach((name) => {
+            const opt = document.createElement('option');
+            opt.value = name;
+            opt.textContent = name;
+            sel.appendChild(opt);
+          });
+          sel.addEventListener('change', () => applyAugmentSelection(sel));
+        });
+      });
+    })
+    .catch(() => {
+      if (err) {
+        err.hidden = false;
+        err.textContent = 'Could not load augment list (mayhem-augment-pool.json). Check your connection and refresh.';
+      }
+    });
+}
+
 /**
  * @param {string[]} items
  * @param {string} pathKey
@@ -304,6 +404,7 @@ function initCreateBuildPage() {
   if (!mainHost) return;
 
   initCreateSearchCloseOnOutsideClick();
+  initAugmentSection();
 
   loadItemCatalog()
     .then(() => {

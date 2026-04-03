@@ -1,0 +1,810 @@
+[
+  {
+    "name": "ADAPt",
+    "tier": "silver"
+  },
+  {
+    "name": "Adamant",
+    "tier": "silver"
+  },
+  {
+    "name": "Blunt Force",
+    "tier": "silver"
+  },
+  {
+    "name": "Buff Buddies",
+    "tier": "silver"
+  },
+  {
+    "name": "Deft",
+    "tier": "silver"
+  },
+  {
+    "name": "Dive Bomber",
+    "tier": "silver"
+  },
+  {
+    "name": "Don't Blink",
+    "tier": "silver"
+  },
+  {
+    "name": "Erosion",
+    "tier": "silver"
+  },
+  {
+    "name": "Escape Plan",
+    "tier": "silver"
+  },
+  {
+    "name": "Fetch",
+    "tier": "silver"
+  },
+  {
+    "name": "First-Aid Kit",
+    "tier": "silver"
+  },
+  {
+    "name": "Flashbang",
+    "tier": "silver"
+  },
+  {
+    "name": "Frost Wraith",
+    "tier": "silver"
+  },
+  {
+    "name": "Goredrink",
+    "tier": "silver"
+  },
+  {
+    "name": "Guilty Pleasure",
+    "tier": "silver"
+  },
+  {
+    "name": "Hat on a Hat",
+    "tier": "silver"
+  },
+  {
+    "name": "Heavy Hitter",
+    "tier": "silver"
+  },
+  {
+    "name": "Homeguard",
+    "tier": "silver"
+  },
+  {
+    "name": "Ice Cold",
+    "tier": "silver"
+  },
+  {
+    "name": "Infernal Soul",
+    "tier": "silver"
+  },
+  {
+    "name": "Leg Day",
+    "tier": "silver"
+  },
+  {
+    "name": "Light 'em Up!",
+    "tier": "silver"
+  },
+  {
+    "name": "Mountain Soul",
+    "tier": "silver"
+  },
+  {
+    "name": "Mighty Shield",
+    "tier": "silver"
+  },
+  {
+    "name": "Mind to Matter",
+    "tier": "silver"
+  },
+  {
+    "name": "Ocean Soul",
+    "tier": "silver"
+  },
+  {
+    "name": "Poltergeist",
+    "tier": "silver"
+  },
+  {
+    "name": "ReEnergize",
+    "tier": "silver"
+  },
+  {
+    "name": "Repulsor",
+    "tier": "silver"
+  },
+  {
+    "name": "Scoped Weapons",
+    "tier": "silver"
+  },
+  {
+    "name": "Self Destruct",
+    "tier": "silver"
+  },
+  {
+    "name": "Shadow Runner",
+    "tier": "silver"
+  },
+  {
+    "name": "Sonic Boom",
+    "tier": "silver"
+  },
+  {
+    "name": "Spin To Win",
+    "tier": "silver"
+  },
+  {
+    "name": "Swift and Safe",
+    "tier": "silver"
+  },
+  {
+    "name": "Tank It Or Leave It",
+    "tier": "silver"
+  },
+  {
+    "name": "The Brutalizer",
+    "tier": "silver"
+  },
+  {
+    "name": "Tormentor",
+    "tier": "silver"
+  },
+  {
+    "name": "Transmute: Gold",
+    "tier": "silver"
+  },
+  {
+    "name": "Typhoon",
+    "tier": "silver"
+  },
+  {
+    "name": "Ultimate Unstoppable",
+    "tier": "silver"
+  },
+  {
+    "name": "Upgrade Collector",
+    "tier": "silver"
+  },
+  {
+    "name": "Upgrade Immolate",
+    "tier": "silver"
+  },
+  {
+    "name": "Upgrade Zhonya's",
+    "tier": "silver"
+  },
+  {
+    "name": "Veil of Warding",
+    "tier": "silver"
+  },
+  {
+    "name": "Wind Beneath Blade",
+    "tier": "silver"
+  },
+  {
+    "name": "Witchful Thinking",
+    "tier": "silver"
+  },
+  {
+    "name": "EscAPADe",
+    "tier": "silver"
+  },
+  {
+    "name": "All For You",
+    "tier": "gold"
+  },
+  {
+    "name": "Apex Inventor",
+    "tier": "gold"
+  },
+  {
+    "name": "Big Brain",
+    "tier": "gold"
+  },
+  {
+    "name": "Bread And Butter",
+    "tier": "gold"
+  },
+  {
+    "name": "Bread And Cheese",
+    "tier": "gold"
+  },
+  {
+    "name": "Bread And Jam",
+    "tier": "gold"
+  },
+  {
+    "name": "Celestial Body",
+    "tier": "gold"
+  },
+  {
+    "name": "Cheating",
+    "tier": "gold"
+  },
+  {
+    "name": "Critical Healing",
+    "tier": "gold"
+  },
+  {
+    "name": "Critical Rhythm",
+    "tier": "gold"
+  },
+  {
+    "name": "Dawnbringer's Resolve",
+    "tier": "gold"
+  },
+  {
+    "name": "Demon's Dance",
+    "tier": "gold"
+  },
+  {
+    "name": "Divine Intervention",
+    "tier": "gold"
+  },
+  {
+    "name": "Ethereal Weapon",
+    "tier": "gold"
+  },
+  {
+    "name": "Executioner",
+    "tier": "gold"
+  },
+  {
+    "name": "Firebrand",
+    "tier": "gold"
+  },
+  {
+    "name": "Flash 2",
+    "tier": "silver"
+  },
+  {
+    "name": "Flashy",
+    "tier": "gold"
+  },
+  {
+    "name": "From Beginning to End",
+    "tier": "gold"
+  },
+  {
+    "name": "Get Excited",
+    "tier": "gold"
+  },
+  {
+    "name": "Holy Fire",
+    "tier": "gold"
+  },
+  {
+    "name": "Impassable",
+    "tier": "gold"
+  },
+  {
+    "name": "It's Critical",
+    "tier": "gold"
+  },
+  {
+    "name": "It's Killing Time",
+    "tier": "gold"
+  },
+  {
+    "name": "Keystone Conjurer",
+    "tier": "gold"
+  },
+  {
+    "name": "Lightning Strikes",
+    "tier": "gold"
+  },
+  {
+    "name": "Magic Missile",
+    "tier": "gold"
+  },
+  {
+    "name": "Marksmage",
+    "tier": "gold"
+  },
+  {
+    "name": "Minionmancer",
+    "tier": "gold"
+  },
+  {
+    "name": "Nightstalking",
+    "tier": "gold"
+  },
+  {
+    "name": "OK Boomerang",
+    "tier": "gold"
+  },
+  {
+    "name": "Outlaw's Grit",
+    "tier": "gold"
+  },
+  {
+    "name": "Overflow",
+    "tier": "gold"
+  },
+  {
+    "name": "Perseverance",
+    "tier": "gold"
+  },
+  {
+    "name": "Rabble Rousing",
+    "tier": "gold"
+  },
+  {
+    "name": "Recursion",
+    "tier": "gold"
+  },
+  {
+    "name": "Restless Restoration",
+    "tier": "gold"
+  },
+  {
+    "name": "Scopier Weapons",
+    "tier": "gold"
+  },
+  {
+    "name": "Searing Dawn",
+    "tier": "gold"
+  },
+  {
+    "name": "Shrink Ray",
+    "tier": "gold"
+  },
+  {
+    "name": "Skilled Sniper",
+    "tier": "gold"
+  },
+  {
+    "name": "Slow and Steady",
+    "tier": "gold"
+  },
+  {
+    "name": "Snowball Upgrade",
+    "tier": "gold"
+  },
+  {
+    "name": "Soul Siphon",
+    "tier": "gold"
+  },
+  {
+    "name": "Spiritual Purification",
+    "tier": "gold"
+  },
+  {
+    "name": "Tank Engine",
+    "tier": "gold"
+  },
+  {
+    "name": "Thread the Needle",
+    "tier": "gold"
+  },
+  {
+    "name": "Transmute: Prismatic",
+    "tier": "gold"
+  },
+  {
+    "name": "Twice Thrice",
+    "tier": "gold"
+  },
+  {
+    "name": "Upgrade Hubris",
+    "tier": "gold"
+  },
+  {
+    "name": "Upgrade Infinity Edge",
+    "tier": "gold"
+  },
+  {
+    "name": "Upgrade Sheen",
+    "tier": "gold"
+  },
+  {
+    "name": "Vampirism",
+    "tier": "gold"
+  },
+  {
+    "name": "Vulnerability",
+    "tier": "gold"
+  },
+  {
+    "name": "With Haste",
+    "tier": "gold"
+  },
+  {
+    "name": "I'm a Baby Kitty Where is Mama",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Back to Basics",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Biggest Snowball Ever",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Blade Waltz",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Can't Touch This",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Circle of Death",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Clown College",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Courage of the Colossus",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Cruelty",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Dashing",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Draw Your Sword",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Dual Wield",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Empyrean Promise",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Eureka",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Fan the Hammer",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Feel the Burn",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Fey Magic",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Final Form",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Gash",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Giant Slayer",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Glass Cannon",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Goldrend",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Goliath",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Infernal Conduit",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Jeweled Gauntlet",
+    "tier": "prismatic"
+  },
+  {
+    "name": "King Me",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Laser Heal",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Mad Scientist",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Master of Duality",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Mystic Punch",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Ominous Pact",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Omni Soul",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Protein Shake",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Quantum Computing",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Quest: Sneakerhead",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Quest: Steel Your Heart",
+    "tier": "gold"
+  },
+  {
+    "name": "Quest: Urf's Champion",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Quest: Wooglet's Witchcap",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Scopiest Weapons",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Slow Cooker",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Snowball Roulette",
+    "tier": "gold"
+  },
+  {
+    "name": "Symphony of War",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Tap Dancer",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Transmute: Chaos",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Ultimate Awakening",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Ultimate Revolution",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Upgrade Mikael's Blessing",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Windspeaker's Blessing",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Cerberus",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Earthwake",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Pandora's Box",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Trueshot Prodigy",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Slap Around",
+    "tier": "silver"
+  },
+  {
+    "name": "???",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Hextech Soul",
+    "tier": "silver"
+  },
+  {
+    "name": "Infinite Recursion",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Bounce of the Poro King",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Crack Open That Egg",
+    "tier": "silver"
+  },
+  {
+    "name": "Crit 'n Cast",
+    "tier": "silver"
+  },
+  {
+    "name": "Critical Missile",
+    "tier": "gold"
+  },
+  {
+    "name": "Devil on Your Shoulder",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Donation",
+    "tier": "gold"
+  },
+  {
+    "name": "Double Tap",
+    "tier": "gold"
+  },
+  {
+    "name": "Dropkick",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Droppybara",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Empowered By The Faithful",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Final City Transit",
+    "tier": "gold"
+  },
+  {
+    "name": "Firefox",
+    "tier": "silver"
+  },
+  {
+    "name": "Grandma's Chili Oil",
+    "tier": "gold"
+  },
+  {
+    "name": "Growth Spurt",
+    "tier": "gold"
+  },
+  {
+    "name": "Heads Up Cupcake!",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Holy Snowball",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Triggered Inferno",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Juiced",
+    "tier": "silver"
+  },
+  {
+    "name": "Kill Secured",
+    "tier": "silver"
+  },
+  {
+    "name": "Phenomenal Evil",
+    "tier": "gold"
+  },
+  {
+    "name": "Pinball",
+    "tier": "gold"
+  },
+  {
+    "name": "Poro Blaster",
+    "tier": "gold"
+  },
+  {
+    "name": "Prom Queen",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Purist - Caster",
+    "tier": "silver"
+  },
+  {
+    "name": "Quest: Icathia's Fall",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Red Envelopes",
+    "tier": "gold"
+  },
+  {
+    "name": "Shrink Engine",
+    "tier": "gold"
+  },
+  {
+    "name": "Sonata",
+    "tier": "gold"
+  },
+  {
+    "name": "Soul Eater",
+    "tier": "gold"
+  },
+  {
+    "name": "Speed Demon",
+    "tier": "silver"
+  },
+  {
+    "name": "Spin Me Right Round",
+    "tier": "silver"
+  },
+  {
+    "name": "Stats!",
+    "tier": "silver"
+  },
+  {
+    "name": "Stats on Stats!",
+    "tier": "gold"
+  },
+  {
+    "name": "Stats on Stats on Stats!",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Stuck in Here With Me",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Twin Fire",
+    "tier": "silver"
+  },
+  {
+    "name": "Upgrade Thornmail",
+    "tier": "silver"
+  },
+  {
+    "name": "Virtuous Cycle",
+    "tier": "silver"
+  },
+  {
+    "name": "Void Rift",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Weighted Popoffs",
+    "tier": "silver"
+  },
+  {
+    "name": "Zealot",
+    "tier": "silver"
+  },
+  {
+    "name": "Hand of Baron",
+    "tier": "prismatic"
+  },
+  {
+    "name": "Upgrade Sword of Blossoming Dawn",
+    "tier": "prismatic"
+  }
+]

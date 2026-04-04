@@ -1,810 +1,1012 @@
 [
   {
     "name": "ADAPt",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/ADAPt_mayhem_augment.png"
   },
   {
     "name": "Adamant",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Adamant_mayhem_augment.png"
   },
   {
     "name": "Blunt Force",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Blunt_Force_mayhem_augment.png"
   },
   {
     "name": "Buff Buddies",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Buff_Buddies_mayhem_augment.png"
   },
   {
     "name": "Deft",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Deft_mayhem_augment.png"
   },
   {
     "name": "Dive Bomber",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Dive_Bomber_mayhem_augment.png"
   },
   {
     "name": "Don't Blink",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Don%27t_Blink_mayhem_augment.png"
   },
   {
     "name": "Erosion",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Erosion_mayhem_augment.png"
   },
   {
     "name": "Escape Plan",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Escape_Plan_mayhem_augment.png"
   },
   {
     "name": "Fetch",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Fetch_mayhem_augment.png"
   },
   {
     "name": "First-Aid Kit",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/First-Aid_Kit_mayhem_augment.png"
   },
   {
     "name": "Flashbang",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Flashbang_mayhem_augment.png"
   },
   {
     "name": "Frost Wraith",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Frost_Wraith_mayhem_augment.png"
   },
   {
     "name": "Goredrink",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Goredrink_mayhem_augment.png"
   },
   {
     "name": "Guilty Pleasure",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Guilty_Pleasure_mayhem_augment.png"
   },
   {
     "name": "Hat on a Hat",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Hat_on_a_Hat_mayhem_augment.png"
   },
   {
     "name": "Heavy Hitter",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Heavy_Hitter_mayhem_augment.png"
   },
   {
     "name": "Homeguard",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Homeguard_mayhem_augment.png"
   },
   {
     "name": "Ice Cold",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Ice_Cold_mayhem_augment.png"
   },
   {
     "name": "Infernal Soul",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Infernal_Soul_mayhem_augment.png"
   },
   {
     "name": "Leg Day",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Leg_Day_mayhem_augment.png"
   },
   {
     "name": "Light 'em Up!",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Light_%27em_Up%21_mayhem_augment.png"
   },
   {
     "name": "Mountain Soul",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Mountain_Soul_mayhem_augment.png"
   },
   {
     "name": "Mighty Shield",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Mighty_Shield_mayhem_augment.png"
   },
   {
     "name": "Mind to Matter",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Mind_to_Matter_mayhem_augment.png"
   },
   {
     "name": "Ocean Soul",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Ocean_Soul_mayhem_augment.png"
   },
   {
     "name": "Poltergeist",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Poltergeist_mayhem_augment.png"
   },
   {
     "name": "ReEnergize",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/ReEnergize_mayhem_augment.png"
   },
   {
     "name": "Repulsor",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Repulsor_mayhem_augment.png"
   },
   {
     "name": "Scoped Weapons",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Scoped_Weapons_mayhem_augment.png"
   },
   {
     "name": "Self Destruct",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Self_Destruct_mayhem_augment.png"
   },
   {
     "name": "Shadow Runner",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Shadow_Runner_mayhem_augment.png"
   },
   {
     "name": "Sonic Boom",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Sonic_Boom_mayhem_augment.png"
   },
   {
     "name": "Spin To Win",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Spin_To_Win_mayhem_augment.png"
   },
   {
     "name": "Swift and Safe",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Swift_and_Safe_mayhem_augment.png"
   },
   {
     "name": "Tank It Or Leave It",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Tank_It_Or_Leave_It_mayhem_augment.png"
   },
   {
     "name": "The Brutalizer",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/The_Brutalizer_mayhem_augment.png"
   },
   {
     "name": "Tormentor",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Tormentor_mayhem_augment.png"
   },
   {
     "name": "Transmute: Gold",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Transmute%3A_Gold_mayhem_augment.png"
   },
   {
     "name": "Typhoon",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Typhoon_mayhem_augment.png"
   },
   {
     "name": "Ultimate Unstoppable",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Ultimate_Unstoppable_mayhem_augment.png"
   },
   {
     "name": "Upgrade Collector",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Collector_mayhem_augment.png"
   },
   {
     "name": "Upgrade Immolate",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Immolate_mayhem_augment.png"
   },
   {
     "name": "Upgrade Zhonya's",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Zhonya%27s_mayhem_augment.png"
   },
   {
     "name": "Veil of Warding",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Veil_of_Warding_mayhem_augment.png"
   },
   {
     "name": "Wind Beneath Blade",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Wind_Beneath_Blade_mayhem_augment.png"
   },
   {
     "name": "Witchful Thinking",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Witchful_Thinking_mayhem_augment.png"
   },
   {
     "name": "EscAPADe",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/EscAPADe_mayhem_augment.png"
   },
   {
     "name": "All For You",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/All_For_You_mayhem_augment.png"
   },
   {
     "name": "Apex Inventor",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Apex_Inventor_mayhem_augment.png"
   },
   {
     "name": "Big Brain",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Big_Brain_mayhem_augment.png"
   },
   {
     "name": "Bread And Butter",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Bread_And_Butter_mayhem_augment.png"
   },
   {
     "name": "Bread And Cheese",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Bread_And_Cheese_mayhem_augment.png"
   },
   {
     "name": "Bread And Jam",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Bread_And_Jam_mayhem_augment.png"
   },
   {
     "name": "Celestial Body",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Celestial_Body_mayhem_augment.png"
   },
   {
     "name": "Cheating",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Cheating_mayhem_augment.png"
   },
   {
     "name": "Critical Healing",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Critical_Healing_mayhem_augment.png"
   },
   {
     "name": "Critical Rhythm",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Critical_Rhythm_mayhem_augment.png"
   },
   {
     "name": "Dawnbringer's Resolve",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Dawnbringer%27s_Resolve_mayhem_augment.png"
   },
   {
     "name": "Demon's Dance",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Demon%27s_Dance_mayhem_augment.png"
   },
   {
     "name": "Divine Intervention",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Divine_Intervention_mayhem_augment.png"
   },
   {
     "name": "Ethereal Weapon",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Ethereal_Weapon_mayhem_augment.png"
   },
   {
     "name": "Executioner",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Executioner_mayhem_augment.png"
   },
   {
     "name": "Firebrand",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Firebrand_mayhem_augment.png"
   },
   {
     "name": "Flash 2",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Flash_2_mayhem_augment.png"
   },
   {
     "name": "Flashy",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Flashy_mayhem_augment.png"
   },
   {
     "name": "From Beginning to End",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/From_Beginning_to_End_mayhem_augment.png"
   },
   {
     "name": "Get Excited",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Get_Excited_mayhem_augment.png"
   },
   {
     "name": "Holy Fire",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Holy_Fire_mayhem_augment.png"
   },
   {
     "name": "Impassable",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Impassable_mayhem_augment.png"
   },
   {
     "name": "It's Critical",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/It%27s_Critical_mayhem_augment.png"
   },
   {
     "name": "It's Killing Time",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/It%27s_Killing_Time_mayhem_augment.png"
   },
   {
     "name": "Keystone Conjurer",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Keystone_Conjurer_mayhem_augment.png"
   },
   {
     "name": "Lightning Strikes",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Lightning_Strikes_mayhem_augment.png"
   },
   {
     "name": "Magic Missile",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Magic_Missile_mayhem_augment.png"
   },
   {
     "name": "Marksmage",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Marksmage_mayhem_augment.png"
   },
   {
     "name": "Minionmancer",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Minionmancer_mayhem_augment.png"
   },
   {
     "name": "Nightstalking",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Nightstalking_mayhem_augment.png"
   },
   {
     "name": "OK Boomerang",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/OK_Boomerang_mayhem_augment.png"
   },
   {
     "name": "Outlaw's Grit",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Outlaw%27s_Grit_mayhem_augment.png"
   },
   {
     "name": "Overflow",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Overflow_mayhem_augment.png"
   },
   {
     "name": "Perseverance",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Perseverance_mayhem_augment.png"
   },
   {
     "name": "Rabble Rousing",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Rabble_Rousing_mayhem_augment.png"
   },
   {
     "name": "Recursion",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Recursion_mayhem_augment.png"
   },
   {
     "name": "Restless Restoration",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Restless_Restoration_mayhem_augment.png"
   },
   {
     "name": "Scopier Weapons",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Scopier_Weapons_mayhem_augment.png"
   },
   {
     "name": "Searing Dawn",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Searing_Dawn_mayhem_augment.png"
   },
   {
     "name": "Shrink Ray",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Shrink_Ray_mayhem_augment.png"
   },
   {
     "name": "Skilled Sniper",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Skilled_Sniper_mayhem_augment.png"
   },
   {
     "name": "Slow and Steady",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Slow_and_Steady_mayhem_augment.png"
   },
   {
     "name": "Snowball Upgrade",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Snowball_Upgrade_mayhem_augment.png"
   },
   {
     "name": "Soul Siphon",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Soul_Siphon_mayhem_augment.png"
   },
   {
     "name": "Spiritual Purification",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Spiritual_Purification_mayhem_augment.png"
   },
   {
     "name": "Tank Engine",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Tank_Engine_mayhem_augment.png"
   },
   {
     "name": "Thread the Needle",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Thread_the_Needle_mayhem_augment.png"
   },
   {
     "name": "Transmute: Prismatic",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Transmute%3A_Prismatic_mayhem_augment.png"
   },
   {
     "name": "Twice Thrice",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Twice_Thrice_mayhem_augment.png"
   },
   {
     "name": "Upgrade Hubris",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Hubris_mayhem_augment.png"
   },
   {
     "name": "Upgrade Infinity Edge",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Infinity_Edge_mayhem_augment.png"
   },
   {
     "name": "Upgrade Sheen",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Sheen_mayhem_augment.png"
   },
   {
     "name": "Vampirism",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Vampirism_mayhem_augment.png"
   },
   {
     "name": "Vulnerability",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Vulnerability_mayhem_augment.png"
   },
   {
     "name": "With Haste",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/With_Haste_mayhem_augment.png"
   },
   {
     "name": "I'm a Baby Kitty Where is Mama",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/I%27m_a_Baby_Kitty_Where_is_Mama_mayhem_augment.png"
   },
   {
     "name": "Back to Basics",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Back_to_Basics_mayhem_augment.png"
   },
   {
     "name": "Biggest Snowball Ever",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Biggest_Snowball_Ever_mayhem_augment.png"
   },
   {
     "name": "Blade Waltz",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Blade_Waltz_mayhem_augment.png"
   },
   {
     "name": "Can't Touch This",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Can%27t_Touch_This_mayhem_augment.png"
   },
   {
     "name": "Circle of Death",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Circle_of_Death_mayhem_augment.png"
   },
   {
     "name": "Clown College",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Clown_College_mayhem_augment.png"
   },
   {
     "name": "Courage of the Colossus",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Courage_of_the_Colossus_mayhem_augment.png"
   },
   {
     "name": "Cruelty",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Cruelty_mayhem_augment.png"
   },
   {
     "name": "Dashing",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Dashing_mayhem_augment.png"
   },
   {
     "name": "Draw Your Sword",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Draw_Your_Sword_mayhem_augment.png"
   },
   {
     "name": "Dual Wield",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Dual_Wield_mayhem_augment.png"
   },
   {
     "name": "Empyrean Promise",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Empyrean_Promise_mayhem_augment.png"
   },
   {
     "name": "Eureka",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Eureka_mayhem_augment.png"
   },
   {
     "name": "Fan the Hammer",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Fan_the_Hammer_mayhem_augment.png"
   },
   {
     "name": "Feel the Burn",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Feel_the_Burn_mayhem_augment.png"
   },
   {
     "name": "Fey Magic",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Fey_Magic_mayhem_augment.png"
   },
   {
     "name": "Final Form",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Final_Form_mayhem_augment.png"
   },
   {
     "name": "Gash",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Gash_mayhem_augment.png"
   },
   {
     "name": "Giant Slayer",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Giant_Slayer_mayhem_augment.png"
   },
   {
     "name": "Glass Cannon",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Glass_Cannon_mayhem_augment.png"
   },
   {
     "name": "Goldrend",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Goldrend_mayhem_augment.png"
   },
   {
     "name": "Goliath",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Goliath_mayhem_augment.png"
   },
   {
     "name": "Infernal Conduit",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Infernal_Conduit_mayhem_augment.png"
   },
   {
     "name": "Jeweled Gauntlet",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Jeweled_Gauntlet_mayhem_augment.png"
   },
   {
     "name": "King Me",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/King_Me_mayhem_augment.png"
   },
   {
     "name": "Laser Heal",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Laser_Heal_mayhem_augment.png"
   },
   {
     "name": "Mad Scientist",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Mad_Scientist_mayhem_augment.png"
   },
   {
     "name": "Master of Duality",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Master_of_Duality_mayhem_augment.png"
   },
   {
     "name": "Mystic Punch",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Mystic_Punch_mayhem_augment.png"
   },
   {
     "name": "Ominous Pact",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Ominous_Pact_mayhem_augment.png"
   },
   {
     "name": "Omni Soul",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Omni_Soul_mayhem_augment.png"
   },
   {
     "name": "Protein Shake",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Protein_Shake_mayhem_augment.png"
   },
   {
     "name": "Quantum Computing",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Quantum_Computing_mayhem_augment.png"
   },
   {
     "name": "Quest: Sneakerhead",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Quest%3A_Sneakerhead_mayhem_augment.png"
   },
   {
     "name": "Quest: Steel Your Heart",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Quest%3A_Steel_Your_Heart_mayhem_augment.png"
   },
   {
     "name": "Quest: Urf's Champion",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Quest%3A_Urf%27s_Champion_mayhem_augment.png"
   },
   {
     "name": "Quest: Wooglet's Witchcap",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Quest%3A_Wooglet%27s_Witchcap_mayhem_augment.png"
   },
   {
     "name": "Scopiest Weapons",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Scopiest_Weapons_mayhem_augment.png"
   },
   {
     "name": "Slow Cooker",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Slow_Cooker_mayhem_augment.png"
   },
   {
     "name": "Snowball Roulette",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Snowball_Roulette_mayhem_augment.png"
   },
   {
     "name": "Symphony of War",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Symphony_of_War_mayhem_augment.png"
   },
   {
     "name": "Tap Dancer",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Tap_Dancer_mayhem_augment.png"
   },
   {
     "name": "Transmute: Chaos",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Transmute%3A_Chaos_mayhem_augment.png"
   },
   {
     "name": "Ultimate Awakening",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Ultimate_Awakening_mayhem_augment.png"
   },
   {
     "name": "Ultimate Revolution",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Ultimate_Revolution_mayhem_augment.png"
   },
   {
     "name": "Upgrade Mikael's Blessing",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Mikael%27s_Blessing_mayhem_augment.png"
   },
   {
     "name": "Windspeaker's Blessing",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Windspeaker%27s_Blessing_mayhem_augment.png"
   },
   {
     "name": "Cerberus",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Cerberus_mayhem_augment.png"
   },
   {
     "name": "Earthwake",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Earthwake_mayhem_augment.png"
   },
   {
     "name": "Pandora's Box",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Pandora%27s_Box_mayhem_augment.png"
   },
   {
     "name": "Trueshot Prodigy",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Trueshot_Prodigy_mayhem_augment.png"
   },
   {
     "name": "Slap Around",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Slap_Around_mayhem_augment.png"
   },
   {
     "name": "???",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Missing_Pings_mayhem_augment.png"
   },
   {
     "name": "Hextech Soul",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Hextech_Soul_mayhem_augment.png"
   },
   {
     "name": "Infinite Recursion",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Infinite_Recursion_mayhem_augment.png"
   },
   {
     "name": "Bounce of the Poro King",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Bounce_of_the_Poro_King_mayhem_augment.png"
   },
   {
     "name": "Crack Open That Egg",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Crack_Open_That_Egg_mayhem_augment.png"
   },
   {
     "name": "Crit 'n Cast",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Crit_%27n_Cast_mayhem_augment.png"
   },
   {
     "name": "Critical Missile",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Critical_Missile_mayhem_augment.png"
   },
   {
     "name": "Devil on Your Shoulder",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Devil_on_Your_Shoulder_mayhem_augment.png"
   },
   {
     "name": "Donation",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Donation_mayhem_augment.png"
   },
   {
     "name": "Double Tap",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Double_Tap_mayhem_augment.png"
   },
   {
     "name": "Dropkick",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Dropkick_mayhem_augment.png"
   },
   {
     "name": "Droppybara",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Droppybara_mayhem_augment.png"
   },
   {
     "name": "Empowered By The Faithful",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Empowered_By_The_Faithful_mayhem_augment.png"
   },
   {
     "name": "Final City Transit",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Final_City_Transit_mayhem_augment.png"
   },
   {
     "name": "Firefox",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Firefox_mayhem_augment.png"
   },
   {
     "name": "Grandma's Chili Oil",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Grandma%27s_Chili_Oil_mayhem_augment.png"
   },
   {
     "name": "Growth Spurt",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Growth_Spurt_mayhem_augment.png"
   },
   {
     "name": "Heads Up Cupcake!",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Heads_Up_Cupcake%21_mayhem_augment.png"
   },
   {
     "name": "Holy Snowball",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Holy_Snowball_mayhem_augment.png"
   },
   {
     "name": "Triggered Inferno",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Triggered_Inferno_mayhem_augment.png"
   },
   {
     "name": "Juiced",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Juiced_mayhem_augment.png"
   },
   {
     "name": "Kill Secured",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Kill_Secured_mayhem_augment.png"
   },
   {
     "name": "Phenomenal Evil",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Phenomenal_Evil_mayhem_augment.png"
   },
   {
     "name": "Pinball",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Pinball_mayhem_augment.png"
   },
   {
     "name": "Poro Blaster",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Poro_Blaster_mayhem_augment.png"
   },
   {
     "name": "Prom Queen",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Prom_Queen_mayhem_augment.png"
   },
   {
     "name": "Purist - Caster",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Purist_-_Caster_mayhem_augment.png"
   },
   {
     "name": "Quest: Icathia's Fall",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Quest%3A_Icathia%27s_Fall_mayhem_augment.png"
   },
   {
     "name": "Red Envelopes",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Red_Envelopes_mayhem_augment.png"
   },
   {
     "name": "Shrink Engine",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Shrink_Engine_mayhem_augment.png"
   },
   {
     "name": "Sonata",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Sonata_mayhem_augment.png"
   },
   {
     "name": "Soul Eater",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Soul_Eater_mayhem_augment.png"
   },
   {
     "name": "Speed Demon",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Speed_Demon_mayhem_augment.png"
   },
   {
     "name": "Spin Me Right Round",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Spin_Me_Right_Round_mayhem_augment.png"
   },
   {
     "name": "Stats!",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Stats%21_mayhem_augment.png"
   },
   {
     "name": "Stats on Stats!",
-    "tier": "gold"
+    "tier": "gold",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Stats_on_Stats%21_mayhem_augment.png"
   },
   {
     "name": "Stats on Stats on Stats!",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Stats_on_Stats_on_Stats%21_mayhem_augment.png"
   },
   {
     "name": "Stuck in Here With Me",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Stuck_in_Here_With_Me_mayhem_augment.png"
   },
   {
     "name": "Twin Fire",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Twin_Fire_mayhem_augment.png"
   },
   {
     "name": "Upgrade Thornmail",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Thornmail_mayhem_augment.png"
   },
   {
     "name": "Virtuous Cycle",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Virtuous_Cycle_mayhem_augment.png"
   },
   {
     "name": "Void Rift",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Void_Rift_mayhem_augment.png"
   },
   {
     "name": "Weighted Popoffs",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Weighted_Popoffs_mayhem_augment.png"
   },
   {
     "name": "Zealot",
-    "tier": "silver"
+    "tier": "silver",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Zealot_mayhem_augment.png"
   },
   {
     "name": "Hand of Baron",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Hand_of_Baron_mayhem_augment.png"
   },
   {
     "name": "Upgrade Sword of Blossoming Dawn",
-    "tier": "prismatic"
+    "tier": "prismatic",
+    "icon": "https://wiki.leagueoflegends.com/en-us/Special:FilePath/Upgrade_Sword_of_Blossoming_Dawn_mayhem_augment.png"
   }
 ]

@@ -1,5 +1,5 @@
 /* ============================================================
-   ARAM BOUND  Main Stylesheet
+   ARAM BOUND ï¿½ Main Stylesheet
    Theme: ARAM Mayhem | Dark navy + Ice Blue + Gold
    ============================================================ */
 
@@ -1284,7 +1284,7 @@ button {
 }
 
 /* ============================================================
-   RESPONSIVE  MOBILE
+   RESPONSIVE ï¿½ MOBILE
    ============================================================ */
 @media (max-width: 768px) {
   /* Nav */
@@ -1381,7 +1381,7 @@ button {
 }
 
 /* ============================================================
-   PAGE HERO  Reusable slim page header (non-homepage pages)
+   PAGE HERO ï¿½ Reusable slim page header (non-homepage pages)
    ============================================================ */
 .page-hero {
   position: relative;
@@ -1478,7 +1478,7 @@ button {
 }
 
 /* ============================================================
-   FILTER BAR  Role/type filters for champions page
+   FILTER BAR ï¿½ Role/type filters for champions page
    ============================================================ */
 .filter-bar-wrapper {
   background: var(--bg-base);
@@ -1558,7 +1558,7 @@ button {
 }
 
 /* ============================================================
-   CHAMPIONS FULL PAGE  Large horizontal champion cards
+   CHAMPIONS FULL PAGE ï¿½ Large horizontal champion cards
    ============================================================ */
 .champions-page-section {
   background: var(--bg-surface);
@@ -1799,7 +1799,7 @@ button {
 }
 
 /* ============================================================
-   COMING SOON  placeholder for future champions
+   COMING SOON ï¿½ placeholder for future champions
    ============================================================ */
 .coming-soon-section {
   background: var(--bg-base);
@@ -1844,7 +1844,7 @@ button {
 }
 
 /* ============================================================
-   RESPONSIVE  Champions Page
+   RESPONSIVE ï¿½ Champions Page
    ============================================================ */
 @media (max-width: 768px) {
   /* Full card goes vertical on mobile */
@@ -1894,7 +1894,7 @@ button {
 }
 
 /* ============================================================
-   AUGMENT STAT CELL  clickable stat that opens modal
+   AUGMENT STAT CELL ï¿½ clickable stat that opens modal
    ============================================================ */
 .champ-stat-item.augment-trigger {
   cursor: pointer;
@@ -1936,7 +1936,7 @@ button {
 }
 
 .augment-trigger-hint::after {
-  content: '';
+  content: 'ï¿½';
   font-size: 0.9rem;
   transition: transform var(--transition-fast);
 }
@@ -1963,7 +1963,7 @@ button {
 }
 
 /* ============================================================
-   AUGMENT MODAL  overlay + dialog
+   AUGMENT MODAL ï¿½ overlay + dialog
    ============================================================ */
 .augment-modal-overlay {
   position: fixed;
@@ -2851,7 +2851,7 @@ button {
 }
 
 .sw-list li::before {
-  content: '';
+  content: 'ï¿½';
   color: var(--text-muted);
   flex-shrink: 0;
   font-weight: 700;
@@ -2930,7 +2930,7 @@ button {
 }
 
 /* ============================================================
-   RESPONSIVE  Champion Detail Page
+   RESPONSIVE ï¿½ Champion Detail Page
    ============================================================ */
 @media (max-width: 768px) {
   .champ-hero-stats-row {
@@ -3071,7 +3071,7 @@ button {
   .nav-search-wrap { display: none; }
 }
 
-/* Builds page  fix champion icon size + card left alignment */
+/* Builds page ï¿½ fix champion icon size + card left alignment */
 .feed-champ-icon {
   width: 48px !important;
   height: 48px !important;
@@ -3087,7 +3087,7 @@ button {
 .builds-control-inner{padding-right:24px !important}
 
 /* --- Builds Control Bar Restructure ----------------------- */
-/* Override old bar padding  outer handles it now */
+/* Override old bar padding ï¿½ outer handles it now */
 .builds-control-bar { padding: 0 !important; }
 
 /* Outer flex row: max-width centred, holds filters + sort */
@@ -3337,7 +3337,7 @@ button {
 }
 
 /* ============================================================
-   COMMUNITY PAGE  EXPANDED LAYOUT OVERRIDES
+   COMMUNITY PAGE ï¿½ EXPANDED LAYOUT OVERRIDES
    ============================================================ */
 
 /* Reduce hero top padding for community page */
@@ -3345,7 +3345,7 @@ button {
   padding: 48px 24px 52px !important;
 }
 
-/* Widen the thread section  use full available width */
+/* Widen the thread section ï¿½ use full available width */
 #community-threads {
   padding: 16px 0 64px !important;
 }
@@ -3362,7 +3362,7 @@ button {
   padding-bottom: 0 !important;
 }
 
-/* Thread cards  bigger, more imposing */
+/* Thread cards ï¿½ bigger, more imposing */
 .thread-inner {
   padding: 22px 32px !important;
   gap: 20px !important;
@@ -3787,7 +3787,7 @@ button {
 }
 
 /* ============================================================
-   CREATE BUILD PAGE  Overview + item paths (Data Dragon icons)
+   CREATE BUILD PAGE ï¿½ Overview + item paths (Data Dragon icons)
    ============================================================ */
 .create-page .create-form {
   display: flex;
@@ -4086,6 +4086,409 @@ button {
   border-bottom-color: var(--gold-light);
 }
 
+/* Create page â€” champion search + summoner row */
+.create-loadout-champ-block {
+  margin-top: 8px;
+  margin-bottom: 22px;
+}
+
+.create-loadout-champ-block > .create-field-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.create-loadout-champ-layout.create-loadout-champ-picked {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.create-loadout-champ-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-loadout-champ-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.create-loadout-champ-picked-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.create-loadout-champ-picked-name {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.create-loadout-summoners {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+}
+
+@media (max-width: 640px) {
+  .create-loadout-summoners {
+    grid-template-columns: 1fr;
+  }
+}
+
+.create-loadout-spell-field {
+  margin-bottom: 0;
+}
+
+.create-loadout-spell-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-loadout-spell-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  object-fit: contain;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.create-loadout-select {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+  appearance: auto;
+  -webkit-appearance: menulist;
+}
+
+/* Create page â€” YouTube highlights (allowlisted embed only) */
+.create-youtube-slot {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.create-youtube-slot:first-of-type {
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.create-youtube-slot-title {
+  margin: 0 0 8px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.create-youtube-phase-hint {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.create-youtube-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: -4px 0 14px;
+  line-height: 1.55;
+}
+
+.create-youtube-hint code {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.create-youtube-hint--small {
+  margin-top: -6px;
+  margin-bottom: 16px;
+  font-size: 0.75rem;
+}
+
+.create-youtube-clip-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 560px) {
+  .create-youtube-clip-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+.create-youtube-clip-field {
+  margin-bottom: 0;
+}
+
+.create-youtube-preview-wrap {
+  margin-top: 18px;
+}
+
+.create-youtube-preview-label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.create-youtube-preview-frame {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0a0a12;
+}
+
+.create-youtube-preview-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.create-youtube-clear {
+  margin-top: 12px;
+}
+
+/* Create page â€” submit build naming dialog (<dialog>) */
+.create-submit-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  border: none;
+  padding: 0;
+  width: min(500px, calc(100vw - 28px));
+  max-height: min(92vh, calc(100vh - 32px));
+  overflow-y: auto;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.create-submit-dialog::backdrop {
+  background: rgba(2, 11, 22, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.create-submit-dialog-panel,
+.create-submit-dialog-success {
+  position: relative;
+  padding: 36px 30px 30px;
+  background: linear-gradient(160deg, rgba(22, 32, 52, 0.98) 0%, rgba(6, 10, 20, 0.99) 100%);
+  border: 1px solid rgba(200, 155, 60, 0.5);
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 28px 90px rgba(0, 0, 0, 0.75),
+    0 0 100px rgba(200, 155, 60, 0.12);
+  animation: create-submit-dialog-enter 0.45s ease-out both;
+}
+
+@keyframes create-submit-dialog-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.create-submit-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text-muted);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.create-submit-dialog-close:hover {
+  color: var(--text-primary);
+  border-color: rgba(200, 155, 60, 0.45);
+  background: rgba(200, 155, 60, 0.08);
+}
+
+.create-submit-dialog-kicker {
+  margin: 0 0 6px;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+}
+
+.create-submit-dialog-title {
+  margin: 0 0 14px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 4vw, 1.85rem);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  background: linear-gradient(100deg, #f0e6d2 0%, var(--gold) 45%, #d4a84b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.create-submit-dialog-desc {
+  margin: 0 0 22px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.create-submit-dialog-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.create-submit-dialog-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(200, 155, 60, 0.35);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.create-submit-dialog-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.15);
+}
+
+.create-submit-dialog-input--error {
+  border-color: rgba(248, 113, 113, 0.7);
+}
+
+.create-submit-dialog-hint {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  color: #f87171;
+  min-height: 1.2em;
+}
+
+.create-submit-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.create-submit-dialog-cta {
+  min-width: 160px;
+  box-shadow: 0 4px 24px rgba(200, 155, 60, 0.25);
+}
+
+.create-submit-dialog-success {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 34px;
+}
+
+.create-submit-dialog-success-line {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.create-submit-dialog-success-title {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.create-submit-dialog-success-name {
+  margin: 0 0 18px;
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.create-submit-dialog-success-sub {
+  margin: 0 0 22px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .create-augment-group {
   margin-top: 26px;
 }
@@ -4136,22 +4539,49 @@ button {
   border-bottom: 1px solid var(--border);
 }
 
-.create-augment-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
+.create-augment-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  position: relative;
 }
 
-.create-augment-icon::before {
-  content: "?";
+.create-augment-icon-wrap.tier-silver {
+  border-color: rgba(160, 160, 160, 0.35);
+  background: rgba(160, 160, 160, 0.1);
+}
+
+.create-augment-icon-wrap.tier-gold {
+  border-color: rgba(200, 155, 60, 0.4);
+  background: rgba(200, 155, 60, 0.1);
+}
+
+.create-augment-icon-wrap.tier-prismatic {
+  border-color: rgba(167, 139, 250, 0.45);
+  background: rgba(167, 139, 250, 0.12);
+}
+
+.create-augment-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.create-augment-icon-fallback {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-muted);
+  pointer-events: none;
 }
 
 .create-augment-pick-label {

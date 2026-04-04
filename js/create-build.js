@@ -61,6 +61,13 @@ async function loadItemCatalog() {
   });
 
   itemSearchList.sort((a, b) => a.name.localeCompare(b.name));
+  const seenNames = new Set();
+  itemSearchList = itemSearchList.filter((row) => {
+    const key = row.name.toLowerCase();
+    if (seenNames.has(key)) return false;
+    seenNames.add(key);
+    return true;
+  });
 }
 
 const pathsState = {
@@ -96,7 +103,7 @@ function filterItems(query) {
 //  AUGMENT POOL (from mayhem-augment-pool.json)
 // ============================================================
 
-/** @type {{ silver: string[], gold: string[], prismatic: string[] } | null} */
+/** @type {{ silver: { name: string, tier: string, icon: string }[], gold: { name: string, tier: string, icon: string }[], prismatic: { name: string, tier: string, icon: string }[] } | null} */
 let augmentPoolByTier = null;
 
 const AUGMENT_POOL_URL = 'js/mayhem-augment-pool.json';
@@ -104,31 +111,39 @@ const AUGMENT_POOL_URL = 'js/mayhem-augment-pool.json';
 async function loadAugmentPool() {
   const res = await fetch(AUGMENT_POOL_URL);
   if (!res.ok) throw new Error('augment pool');
-  /** @type {{ name: string, tier: string }[]} */
+  /** @type {{ name: string, tier: string, icon: string }[]} */
   const rows = await res.json();
   augmentPoolByTier = { silver: [], gold: [], prismatic: [] };
   rows.forEach((r) => {
     const t = r.tier;
-    if (t === 'silver') augmentPoolByTier.silver.push(r.name);
-    else if (t === 'gold') augmentPoolByTier.gold.push(r.name);
-    else if (t === 'prismatic') augmentPoolByTier.prismatic.push(r.name);
+    if (t === 'silver') augmentPoolByTier.silver.push(r);
+    else if (t === 'gold') augmentPoolByTier.gold.push(r);
+    else if (t === 'prismatic') augmentPoolByTier.prismatic.push(r);
   });
-  // Keep options sorted for selects
-  augmentPoolByTier.silver.sort((a, b) => a.localeCompare(b));
-  augmentPoolByTier.gold.sort((a, b) => a.localeCompare(b));
-  augmentPoolByTier.prismatic.sort((a, b) => a.localeCompare(b));
+  augmentPoolByTier.silver.sort((a, b) => a.name.localeCompare(b.name));
+  augmentPoolByTier.gold.sort((a, b) => a.name.localeCompare(b.name));
+  augmentPoolByTier.prismatic.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**
- * Builds simple initials for a text label (icon substitute).
- * @param {string} name
+ * Icon URL for the selected augment. Prefer JSON pool lookup — some browsers
+ * do not preserve `data-*` on `<option>`; lazy+hidden preview imgs can also
+ * block loading until we set eager and unhide after load.
+ * @param {HTMLSelectElement} select
+ * @param {string} augmentName
+ * @returns {string}
  */
-function initialsForAugment(name) {
-  const parts = name.split(/\s+/).filter(Boolean);
-  if (!parts.length) return '';
-  const first = parts[0][0] || '';
-  const second = parts.length > 1 ? parts[1][0] || '' : '';
-  return (first + second).toUpperCase();
+function resolveAugmentIconUrl(select, augmentName) {
+  const group = select.closest('.create-augment-group');
+  const tier = group && group.getAttribute('data-tier');
+  const t = tier === 'gold' || tier === 'prismatic' ? tier : 'silver';
+  const pool = augmentPoolByTier && augmentPoolByTier[t];
+  if (pool && augmentName) {
+    const row = pool.find((r) => r.name === augmentName);
+    if (row && row.icon) return row.icon;
+  }
+  const opt = select.selectedOptions[0];
+  return (opt && opt.getAttribute('data-icon')) || '';
 }
 
 /**
@@ -138,16 +153,46 @@ function applyAugmentSelection(select) {
   const card = select.closest('.create-augment-card');
   if (!card) return;
   const nameEl = card.querySelector('[data-role="name"]');
-  const iconEl = card.querySelector('[data-role="icon"]');
+  const iconImg = card.querySelector('[data-role="icon-img"]');
+  const iconFb = card.querySelector('[data-role="icon-fallback"]');
   const value = select.value;
-  if (!nameEl) return;
+  if (!nameEl || !iconImg || !iconFb) return;
+
   if (!value) {
     nameEl.textContent = select.getAttribute('data-placeholder') || 'Choose an augment…';
-    if (iconEl) iconEl.textContent = '';
+    iconImg.removeAttribute('src');
+    iconImg.alt = '';
+    iconImg.hidden = true;
+    iconFb.hidden = false;
     return;
   }
+
   nameEl.textContent = value;
-  if (iconEl) iconEl.textContent = initialsForAugment(value);
+  const iconUrl = resolveAugmentIconUrl(select, value);
+  if (!iconUrl) {
+    iconImg.hidden = true;
+    iconFb.hidden = false;
+    return;
+  }
+
+  iconImg.alt = value;
+  iconImg.onerror = () => {
+    iconImg.removeAttribute('src');
+    iconImg.alt = '';
+    iconImg.hidden = true;
+    iconFb.hidden = false;
+    iconImg.onerror = null;
+  };
+  iconImg.onload = () => {
+    iconImg.hidden = false;
+    iconFb.hidden = true;
+  };
+  iconImg.loading = 'eager';
+  iconImg.src = iconUrl;
+  if (iconImg.complete && iconImg.naturalWidth > 0) {
+    iconImg.hidden = false;
+    iconFb.hidden = true;
+  }
 }
 
 function initAugmentSection() {
@@ -167,17 +212,16 @@ function initAugmentSection() {
         /** @type {NodeListOf<HTMLSelectElement>} */
         const selects = group.querySelectorAll('.create-augment-select');
         selects.forEach((sel) => {
-          // Cache placeholder for reset
           if (!sel.getAttribute('data-placeholder')) {
             const card = sel.closest('.create-augment-card');
             const nameEl = card && card.querySelector('[data-role="name"]');
             if (nameEl) sel.setAttribute('data-placeholder', nameEl.textContent || '');
           }
-          // Populate options
-          pool.forEach((name) => {
+          pool.forEach((row) => {
             const opt = document.createElement('option');
-            opt.value = name;
-            opt.textContent = name;
+            opt.value = row.name;
+            opt.textContent = row.name;
+            if (row.icon) opt.setAttribute('data-icon', row.icon);
             sel.appendChild(opt);
           });
           sel.addEventListener('change', () => applyAugmentSelection(sel));
@@ -338,10 +382,448 @@ function initCreateSearchCloseOnOutsideClick() {
   document.addEventListener('click', (e) => {
     document.querySelectorAll('.create-item-search-results').forEach((listEl) => {
       if (listEl.hidden) return;
-      const host = listEl.closest('.create-path-block');
+      const pathHost = listEl.closest('.create-path-block');
+      const champHost = listEl.closest('.create-champ-search-host');
+      const host = pathHost || champHost;
       if (host && !host.contains(e.target)) listEl.hidden = true;
     });
   });
+}
+
+/** @type {{ id: string, name: string, icon: string }[]} */
+const CREATE_FORM_CHAMPIONS = [
+  {
+    id: 'ahri',
+    name: 'Ahri',
+    icon: `https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/champion/Ahri.png`,
+  },
+  {
+    id: 'lux',
+    name: 'Lux',
+    icon: `https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/champion/Lux.png`,
+  },
+];
+
+/** Same art as the client; wiki Special:FilePath URLs often 404 for spell PNGs. */
+const DDRAGON_SPELL = `https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/spell`;
+const CREATE_SUMMONER_ICON = {
+  snowball: `${DDRAGON_SPELL}/SummonerSnowball.png`,
+  clarity: `${DDRAGON_SPELL}/SummonerMana.png`,
+  ignite: `${DDRAGON_SPELL}/SummonerDot.png`,
+  flash: `${DDRAGON_SPELL}/SummonerFlash.png`,
+  ghost: `${DDRAGON_SPELL}/SummonerHaste.png`,
+  heal: `${DDRAGON_SPELL}/SummonerHeal.png`,
+  cleanse: `${DDRAGON_SPELL}/SummonerBoost.png`,
+};
+
+const YOUTUBE_NOCOOKIE_EMBED = 'https://www.youtube-nocookie.com/embed/';
+const YT_VIDEO_ID_RE = /^[a-zA-Z0-9_-]{11}$/;
+const YOUTUBE_ALLOWED_HOSTS = new Set([
+  'youtube.com',
+  'www.youtube.com',
+  'm.youtube.com',
+  'youtu.be',
+  'www.youtube-nocookie.com',
+]);
+
+/**
+ * Strict allowlist: only youtu.be / youtube.com / m.youtube.com / youtube-nocookie.com.
+ * @param {string} raw
+ * @returns {string | null} 11-character video id
+ */
+function parseYoutubeVideoIdFromUrl(raw) {
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  let urlString = trimmed;
+  if (!/^https?:\/\//i.test(urlString)) {
+    urlString = `https://${urlString}`;
+  }
+  let url;
+  try {
+    url = new URL(urlString);
+  } catch {
+    return null;
+  }
+  const host = url.hostname.toLowerCase();
+  if (!YOUTUBE_ALLOWED_HOSTS.has(host)) return null;
+
+  if (host === 'youtu.be') {
+    const seg = url.pathname.split('/').filter(Boolean)[0];
+    return seg && YT_VIDEO_ID_RE.test(seg) ? seg : null;
+  }
+
+  if (url.pathname === '/watch' || url.pathname === '/watch/') {
+    const v = url.searchParams.get('v');
+    return v && YT_VIDEO_ID_RE.test(v) ? v : null;
+  }
+
+  if (url.pathname.startsWith('/embed/')) {
+    const seg = url.pathname.slice('/embed/'.length).split('/')[0];
+    return seg && YT_VIDEO_ID_RE.test(seg) ? seg : null;
+  }
+
+  const parts = url.pathname.split('/').filter(Boolean);
+  if (parts[0] === 'shorts' && parts[1]) {
+    return YT_VIDEO_ID_RE.test(parts[1]) ? parts[1] : null;
+  }
+  if (parts[0] === 'live' && parts[1]) {
+    return YT_VIDEO_ID_RE.test(parts[1]) ? parts[1] : null;
+  }
+
+  return null;
+}
+
+/**
+ * @param {string} videoId
+ * @param {number | null} startSec
+ * @param {number | null} endSec
+ * @returns {string}
+ */
+function buildYoutubeNoCookieEmbedSrc(videoId, startSec, endSec) {
+  const base = `${YOUTUBE_NOCOOKIE_EMBED}${encodeURIComponent(videoId)}`;
+  const p = new URLSearchParams();
+  p.set('rel', '0');
+  if (startSec != null && startSec >= 0 && Number.isFinite(startSec)) {
+    p.set('start', String(Math.floor(startSec)));
+  }
+  if (endSec != null && endSec > 0 && Number.isFinite(endSec)) {
+    p.set('end', String(Math.floor(endSec)));
+  }
+  return `${base}?${p.toString()}`;
+}
+
+/**
+ * @param {{
+ *   urlIn: HTMLInputElement,
+ *   startIn: HTMLInputElement | null,
+ *   endIn: HTMLInputElement | null,
+ *   hidId: HTMLInputElement,
+ *   hidStart: HTMLInputElement,
+ *   hidEnd: HTMLInputElement,
+ *   err: HTMLElement,
+ *   wrap: HTMLElement,
+ *   iframe: HTMLIFrameElement,
+ *   clearBtn: HTMLButtonElement | null,
+ * }} slot
+ * @returns {(() => void) | null}
+ */
+function wireYoutubeHighlightSlot(slot) {
+  const { urlIn, startIn, endIn, hidId, hidStart, hidEnd, err, wrap, iframe, clearBtn } = slot;
+  if (!urlIn || !hidId || !hidStart || !hidEnd || !iframe || !err || !wrap) return null;
+
+  let debounceTimer = 0;
+
+  function showError(msg) {
+    err.textContent = msg;
+    err.hidden = !msg;
+  }
+
+  /**
+   * @param {HTMLInputElement | null} el
+   * @returns {null | number | NaN}
+   */
+  function parseOptionalSec(el) {
+    if (!el) return null;
+    const v = el.value.trim();
+    if (v === '') return null;
+    const n = parseInt(v, 10);
+    if (!Number.isFinite(n) || n < 0) return NaN;
+    return n;
+  }
+
+  function sync() {
+    const raw = urlIn.value.trim();
+    showError('');
+
+    if (!raw) {
+      hidId.value = '';
+      hidStart.value = '';
+      hidEnd.value = '';
+      iframe.removeAttribute('src');
+      wrap.hidden = true;
+      if (clearBtn) clearBtn.hidden = true;
+      return;
+    }
+
+    const vid = parseYoutubeVideoIdFromUrl(raw);
+    if (!vid) {
+      hidId.value = '';
+      hidStart.value = '';
+      hidEnd.value = '';
+      iframe.removeAttribute('src');
+      wrap.hidden = true;
+      if (clearBtn) clearBtn.hidden = true;
+      showError(
+        'Only YouTube links from youtube.com, m.youtube.com, youtu.be, or youtube-nocookie.com are accepted (watch, embed, Shorts, or Live).'
+      );
+      return;
+    }
+
+    const startSec = parseOptionalSec(startIn);
+    const endSec = parseOptionalSec(endIn);
+    if (Number.isNaN(startSec) || Number.isNaN(endSec)) {
+      showError('Start and end must be whole seconds ≥ 0, or left blank.');
+      hidId.value = '';
+      hidStart.value = '';
+      hidEnd.value = '';
+      iframe.removeAttribute('src');
+      wrap.hidden = true;
+      if (clearBtn) clearBtn.hidden = true;
+      return;
+    }
+    if (endSec != null && startSec == null) {
+      showError('Set a start time (seconds) when you set an end time.');
+      hidId.value = '';
+      hidStart.value = '';
+      hidEnd.value = '';
+      iframe.removeAttribute('src');
+      wrap.hidden = true;
+      if (clearBtn) clearBtn.hidden = true;
+      return;
+    }
+    if (startSec != null && endSec != null && endSec <= startSec) {
+      showError('End time must be greater than start time.');
+      hidId.value = '';
+      hidStart.value = '';
+      hidEnd.value = '';
+      iframe.removeAttribute('src');
+      wrap.hidden = true;
+      if (clearBtn) clearBtn.hidden = true;
+      return;
+    }
+
+    hidId.value = vid;
+    hidStart.value = startSec != null ? String(startSec) : '';
+    hidEnd.value = endSec != null ? String(endSec) : '';
+
+    iframe.src = buildYoutubeNoCookieEmbedSrc(vid, startSec, endSec);
+    wrap.hidden = false;
+    if (clearBtn) clearBtn.hidden = false;
+  }
+
+  function scheduleSync(delayMs) {
+    window.clearTimeout(debounceTimer);
+    debounceTimer = window.setTimeout(sync, delayMs);
+  }
+
+  urlIn.addEventListener('input', () => scheduleSync(400));
+  urlIn.addEventListener('blur', sync);
+  if (startIn) {
+    startIn.addEventListener('input', () => scheduleSync(200));
+    startIn.addEventListener('blur', sync);
+  }
+  if (endIn) {
+    endIn.addEventListener('input', () => scheduleSync(200));
+    endIn.addEventListener('blur', sync);
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      urlIn.value = '';
+      if (startIn) startIn.value = '';
+      if (endIn) endIn.value = '';
+      sync();
+    });
+  }
+
+  return () => {
+    window.clearTimeout(debounceTimer);
+    sync();
+  };
+}
+
+function initYoutubeHighlightSection() {
+  /** @type {(() => void)[]} */
+  const syncFns = [];
+
+  const slots = [
+    {
+      urlIn: document.getElementById('youtubeEarlyUrlInput'),
+      startIn: document.getElementById('youtubeEarlyStartInput'),
+      endIn: document.getElementById('youtubeEarlyEndInput'),
+      hidId: document.getElementById('youtubeEarlyVideoId'),
+      hidStart: document.getElementById('youtubeEarlyStartSec'),
+      hidEnd: document.getElementById('youtubeEarlyEndSec'),
+      err: document.getElementById('create-youtube-error-early'),
+      wrap: document.getElementById('youtubeEarlyPreviewWrap'),
+      iframe: document.getElementById('youtubeEarlyIframe'),
+      clearBtn: document.getElementById('youtubeEarlyClear'),
+    },
+    {
+      urlIn: document.getElementById('youtubeMidUrlInput'),
+      startIn: document.getElementById('youtubeMidStartInput'),
+      endIn: document.getElementById('youtubeMidEndInput'),
+      hidId: document.getElementById('youtubeMidVideoId'),
+      hidStart: document.getElementById('youtubeMidStartSec'),
+      hidEnd: document.getElementById('youtubeMidEndSec'),
+      err: document.getElementById('create-youtube-error-mid'),
+      wrap: document.getElementById('youtubeMidPreviewWrap'),
+      iframe: document.getElementById('youtubeMidIframe'),
+      clearBtn: document.getElementById('youtubeMidClear'),
+    },
+    {
+      urlIn: document.getElementById('youtubeLateUrlInput'),
+      startIn: document.getElementById('youtubeLateStartInput'),
+      endIn: document.getElementById('youtubeLateEndInput'),
+      hidId: document.getElementById('youtubeLateVideoId'),
+      hidStart: document.getElementById('youtubeLateStartSec'),
+      hidEnd: document.getElementById('youtubeLateEndSec'),
+      err: document.getElementById('create-youtube-error-late'),
+      wrap: document.getElementById('youtubeLatePreviewWrap'),
+      iframe: document.getElementById('youtubeLateIframe'),
+      clearBtn: document.getElementById('youtubeLateClear'),
+    },
+  ];
+
+  slots.forEach((s) => {
+    const fn = wireYoutubeHighlightSlot(s);
+    if (fn) syncFns.push(fn);
+  });
+
+  const form = document.getElementById('createBuildForm');
+  if (form && syncFns.length) {
+    /** @type {{ _youtubeSyncFns?: (() => void)[] }} */
+    const f = form;
+    f._youtubeSyncFns = syncFns;
+    form.addEventListener('submit', () => {
+      syncFns.forEach((fn) => fn());
+    });
+  }
+}
+
+/**
+ * @param {string} query
+ */
+function filterCreateFormChampions(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) return CREATE_FORM_CHAMPIONS.slice();
+  return CREATE_FORM_CHAMPIONS.filter((c) => c.name.toLowerCase().includes(q));
+}
+
+/**
+ * @param {HTMLSelectElement} selectEl
+ * @param {HTMLImageElement} imgEl
+ */
+function updateCreateSummonerPreview(selectEl, imgEl) {
+  const key = selectEl.value;
+  const url = key ? CREATE_SUMMONER_ICON[/** @type {keyof typeof CREATE_SUMMONER_ICON} */ (key)] : '';
+  imgEl.onerror = () => {
+    imgEl.removeAttribute('src');
+    imgEl.alt = '';
+    imgEl.hidden = true;
+    imgEl.onerror = null;
+  };
+  if (!url) {
+    imgEl.removeAttribute('src');
+    imgEl.alt = '';
+    imgEl.hidden = true;
+    return;
+  }
+  imgEl.alt = (selectEl.selectedOptions[0] && selectEl.selectedOptions[0].textContent.trim()) || '';
+  imgEl.onload = () => {
+    imgEl.hidden = false;
+    imgEl.onload = null;
+  };
+  imgEl.loading = 'eager';
+  imgEl.src = url;
+  if (imgEl.complete && imgEl.naturalWidth > 0) imgEl.hidden = false;
+}
+
+function initCreateLoadoutSection() {
+  const input = document.getElementById('createChampSearchInput');
+  const results = document.getElementById('createChampSearchResults');
+  const hiddenChamp = document.getElementById('createChampionId');
+  const summaryEl = document.getElementById('createChampSummary');
+  const searchWrap = document.getElementById('createChampSearchWrap');
+  const selectedImg = document.getElementById('createChampSelectedImg');
+  const selectedName = document.getElementById('createChampSelectedName');
+  const loadoutRoot = document.getElementById('create-loadout');
+  if (!input || !results || !hiddenChamp || !summaryEl || !searchWrap || !selectedImg || !selectedName) {
+    return;
+  }
+
+  function setResultsOpen(open) {
+    input.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  function renderChampResults() {
+    const rows = filterCreateFormChampions(input.value);
+    results.innerHTML = rows
+      .map(
+        (c) => `
+          <button type="button" class="create-search-hit" data-id="${escapeHtml(c.id)}" role="option">
+            <img src="${escapeHtml(c.icon)}" alt="" width="32" height="32" loading="lazy" />
+            <span>${escapeHtml(c.name)}</span>
+          </button>
+        `
+      )
+      .join('');
+    const show = rows.length > 0;
+    results.hidden = !show;
+    setResultsOpen(show);
+  }
+
+  /**
+   * @param {string} id
+   */
+  function applyChampionChoice(id) {
+    const c = CREATE_FORM_CHAMPIONS.find((x) => x.id === id);
+    if (!c) return;
+    hiddenChamp.value = c.id;
+    selectedImg.src = c.icon;
+    selectedImg.alt = c.name;
+    selectedName.textContent = c.name;
+    selectedImg.removeAttribute('hidden');
+    summaryEl.removeAttribute('hidden');
+    searchWrap.setAttribute('hidden', '');
+    input.value = '';
+    results.innerHTML = '';
+    results.hidden = true;
+    setResultsOpen(false);
+  }
+
+  function clearChampion() {
+    hiddenChamp.value = '';
+    summaryEl.setAttribute('hidden', '');
+    searchWrap.removeAttribute('hidden');
+    /* Keep portrait + alt text until a new champion is chosen (no empty placeholder). */
+    input.value = '';
+    results.innerHTML = '';
+    results.hidden = true;
+    setResultsOpen(false);
+  }
+
+  input.addEventListener('input', () => renderChampResults());
+  input.addEventListener('focus', () => renderChampResults());
+
+  results.addEventListener('click', (e) => {
+    const hit = e.target.closest('.create-search-hit');
+    if (!hit) return;
+    const id = hit.getAttribute('data-id');
+    if (id) applyChampionChoice(id);
+  });
+
+  if (loadoutRoot) {
+    loadoutRoot.addEventListener('click', (e) => {
+      const btn = e.target && e.target.closest && e.target.closest('#createChampClear');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      clearChampion();
+    });
+  }
+
+  const s1 = document.getElementById('createSummoner1');
+  const s2 = document.getElementById('createSummoner2');
+  const i1 = document.getElementById('createSummoner1Img');
+  const i2 = document.getElementById('createSummoner2Img');
+  if (s1 && i1) {
+    s1.addEventListener('change', () => updateCreateSummonerPreview(s1, i1));
+    updateCreateSummonerPreview(s1, i1);
+  }
+  if (s2 && i2) {
+    s2.addEventListener('change', () => updateCreateSummonerPreview(s2, i2));
+    updateCreateSummonerPreview(s2, i2);
+  }
 }
 
 function renderAlternateBlocks() {
@@ -400,11 +882,14 @@ function renderAlternateBlocks() {
 }
 
 function initCreateBuildPage() {
-  const mainHost = document.querySelector('.create-path-block[data-path-key="main"]');
-  if (!mainHost) return;
-
   initCreateSearchCloseOnOutsideClick();
   initAugmentSection();
+  initCreateLoadoutSection();
+  initYoutubeHighlightSection();
+  initCreateSubmitNameDialog();
+
+  const mainHost = document.querySelector('.create-path-block[data-path-key="main"]');
+  if (!mainHost) return;
 
   loadItemCatalog()
     .then(() => {
@@ -433,6 +918,104 @@ function initCreateBuildPage() {
       renderAlternateBlocks();
     });
   }
+}
+
+function initCreateSubmitNameDialog() {
+  const dialog = document.getElementById('createBuildNameDialog');
+  const openBtn = document.getElementById('createSubmitBuildBtn');
+  const panel = document.getElementById('createSubmitDialogPanel');
+  const success = document.getElementById('createSubmitDialogSuccess');
+  const input = document.getElementById('createSubmitDialogNameInput');
+  const errEl = document.getElementById('createSubmitDialogError');
+  const hiddenTitle = document.getElementById('createBuildTitle');
+  const confirmBtn = document.getElementById('createSubmitDialogConfirm');
+  const cancelBtn = document.getElementById('createSubmitDialogCancel');
+  const closeBtn = document.getElementById('createSubmitDialogClose');
+  const doneBtn = document.getElementById('createSubmitDialogDone');
+  const successName = document.getElementById('createSubmitDialogSuccessName');
+  const form = document.getElementById('createBuildForm');
+
+  if (!dialog || !openBtn || !panel || !success || !input || !hiddenTitle || !confirmBtn) return;
+
+  function showErr(msg) {
+    if (!errEl) return;
+    errEl.textContent = msg;
+    errEl.hidden = !msg;
+  }
+
+  function resetToForm() {
+    panel.hidden = false;
+    success.hidden = true;
+    showErr('');
+    input.classList.remove('create-submit-dialog-input--error');
+  }
+
+  function openDialog() {
+    resetToForm();
+    input.value = hiddenTitle.value.trim() || input.value.trim();
+    showErr('');
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+    }
+    input.focus();
+  }
+
+  function closeDialog() {
+    if (typeof dialog.close === 'function') dialog.close();
+  }
+
+  dialog.addEventListener('close', () => {
+    resetToForm();
+    input.value = '';
+  });
+
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) closeDialog();
+  });
+
+  openBtn.addEventListener('click', () => {
+    if (form) {
+      /** @type {{ _youtubeSyncFns?: (() => void)[] }} */
+      const f = form;
+      const syncFns = f._youtubeSyncFns || [];
+      syncFns.forEach((fn) => fn());
+    }
+    openDialog();
+  });
+
+  function onConfirm() {
+    const name = input.value.trim();
+    if (!name) {
+      showErr('Give your build a title—this is the name players will see.');
+      input.classList.add('create-submit-dialog-input--error');
+      input.focus();
+      return;
+    }
+    hiddenTitle.value = name;
+    showErr('');
+    input.classList.remove('create-submit-dialog-input--error');
+    panel.hidden = true;
+    success.hidden = false;
+    if (successName) successName.textContent = name;
+    if (doneBtn) doneBtn.focus();
+  }
+
+  confirmBtn.addEventListener('click', onConfirm);
+  cancelBtn?.addEventListener('click', () => closeDialog());
+  closeBtn?.addEventListener('click', () => closeDialog());
+  doneBtn?.addEventListener('click', () => closeDialog());
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      onConfirm();
+    }
+  });
+
+  input.addEventListener('input', () => {
+    showErr('');
+    input.classList.remove('create-submit-dialog-input--error');
+  });
 }
 
 document.addEventListener('DOMContentLoaded', initCreateBuildPage);

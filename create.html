@@ -55,6 +55,114 @@
 
   <main class="bd-page create-page" id="create-main">
     <form id="createBuildForm" class="create-form" novalidate>
+      <input type="hidden" name="build_title" id="createBuildTitle" value="" />
+
+      <!-- CHAMPION & SUMMONERS -->
+      <section class="bd-section create-section reveal" id="create-loadout">
+        <h2 class="bd-section-title">🏆 Champion &amp; summoners</h2>
+        <p class="create-intro">
+          Choose your champion and two summoner spells you recommend
+          for ARAM Mayhem.
+        </p>
+        <p class="create-intro create-intro--link">
+          <a
+            href="https://wiki.leagueoflegends.com/en-us/Summoner_spell"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Summoner spells — League of Legends Wiki</a>
+        </p>
+
+        <input type="hidden" name="champion" id="createChampionId" value="" />
+
+        <div class="create-loadout-champ-block">
+          <span class="create-field-label">Champion</span>
+          <div class="create-loadout-champ-layout create-loadout-champ-picked">
+            <img
+              id="createChampSelectedImg"
+              class="create-loadout-champ-picked-img"
+              alt=""
+              width="48"
+              height="48"
+              decoding="async"
+              hidden
+            />
+            <div class="create-loadout-champ-col">
+              <div id="createChampSummary" class="create-loadout-champ-summary" hidden>
+                <span id="createChampSelectedName" class="create-loadout-champ-picked-name"></span>
+                <button type="button" class="btn btn-ghost btn-sm" id="createChampClear">Change champion</button>
+              </div>
+              <div id="createChampSearchWrap" class="create-item-search create-champ-search-host">
+                <input
+                  type="search"
+                  id="createChampSearchInput"
+                  class="create-item-search-input"
+                  placeholder="Search champions by name…"
+                  autocomplete="off"
+                  aria-label="Search champions"
+                  aria-controls="createChampSearchResults"
+                  aria-expanded="false"
+                />
+                <div id="createChampSearchResults" class="create-item-search-results" hidden role="listbox"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="create-loadout-summoners">
+          <label class="create-field create-loadout-spell-field">
+            <span class="create-field-label">Summoner 1</span>
+            <div class="create-loadout-spell-row">
+              <img
+                id="createSummoner1Img"
+                class="create-loadout-spell-icon"
+                alt=""
+                width="40"
+                height="40"
+                hidden
+                loading="eager"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+              <select id="createSummoner1" name="summoner1" class="create-input create-loadout-select" aria-label="First summoner spell">
+                <option value="">Select summoner…</option>
+                <option value="snowball">Snowball</option>
+                <option value="clarity">Clarity</option>
+                <option value="ignite">Ignite</option>
+                <option value="flash">Flash</option>
+                <option value="ghost">Ghost</option>
+                <option value="heal">Heal</option>
+                <option value="cleanse">Cleanse</option>
+              </select>
+            </div>
+          </label>
+          <label class="create-field create-loadout-spell-field">
+            <span class="create-field-label">Summoner 2</span>
+            <div class="create-loadout-spell-row">
+              <img
+                id="createSummoner2Img"
+                class="create-loadout-spell-icon"
+                alt=""
+                width="40"
+                height="40"
+                hidden
+                loading="eager"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+              <select id="createSummoner2" name="summoner2" class="create-input create-loadout-select" aria-label="Second summoner spell">
+                <option value="">Select summoner…</option>
+                <option value="snowball">Snowball</option>
+                <option value="clarity">Clarity</option>
+                <option value="ignite">Ignite</option>
+                <option value="flash">Flash</option>
+                <option value="ghost">Ghost</option>
+                <option value="heal">Heal</option>
+                <option value="cleanse">Cleanse</option>
+              </select>
+            </div>
+          </label>
+        </div>
+      </section>
 
       <!-- OVERVIEW -->
       <section class="bd-section create-section reveal" id="create-overview">
@@ -155,7 +263,10 @@
           <div class="create-augment-grid" aria-label="Top Prismatic augments">
             <div class="create-augment-card" data-augment-slot="p1">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-prismatic" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Prismatic #1</span>
               </div>
               <div class="create-augment-card-body">
@@ -167,7 +278,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="p2">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-prismatic" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Prismatic #2</span>
               </div>
               <div class="create-augment-card-body">
@@ -179,7 +293,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="p3">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-prismatic" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Prismatic #3</span>
               </div>
               <div class="create-augment-card-body">
@@ -191,7 +308,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="p4">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-prismatic" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-prismatic" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Prismatic #4</span>
               </div>
               <div class="create-augment-card-body">
@@ -212,7 +332,10 @@
           <div class="create-augment-grid" aria-label="Top Gold augments">
             <div class="create-augment-card" data-augment-slot="g1">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-gold" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Gold #1</span>
               </div>
               <div class="create-augment-card-body">
@@ -224,7 +347,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="g2">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-gold" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Gold #2</span>
               </div>
               <div class="create-augment-card-body">
@@ -236,7 +362,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="g3">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-gold" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Gold #3</span>
               </div>
               <div class="create-augment-card-body">
@@ -248,7 +377,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="g4">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-gold" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-gold" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Gold #4</span>
               </div>
               <div class="create-augment-card-body">
@@ -269,7 +401,10 @@
           <div class="create-augment-grid" aria-label="Top Silver augments">
             <div class="create-augment-card" data-augment-slot="s1">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-silver" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Silver #1</span>
               </div>
               <div class="create-augment-card-body">
@@ -281,7 +416,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="s2">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-silver" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Silver #2</span>
               </div>
               <div class="create-augment-card-body">
@@ -293,7 +431,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="s3">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-silver" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Silver #3</span>
               </div>
               <div class="create-augment-card-body">
@@ -305,7 +446,10 @@
             </div>
             <div class="create-augment-card" data-augment-slot="s4">
               <div class="create-augment-card-head">
-                <div class="create-augment-icon tier-silver" data-role="icon"></div>
+                <div class="create-augment-icon-wrap tier-silver" data-role="icon-wrap" aria-hidden="true">
+                  <img class="create-augment-icon-img" data-role="icon-img" alt="" width="40" height="40" loading="eager" decoding="async" hidden referrerpolicy="no-referrer" />
+                  <span class="create-augment-icon-fallback" data-role="icon-fallback">✦</span>
+                </div>
                 <span class="create-augment-pick-label">Silver #4</span>
               </div>
               <div class="create-augment-card-body">
@@ -319,12 +463,200 @@
         </div>
       </section>
 
+      <!-- YOUTUBE HIGHLIGHTS (3 phases — YouTube only) -->
+      <section class="bd-section create-section reveal" id="create-youtube-highlight">
+        <h2 class="bd-section-title">🎬 Gameplay highlights</h2>
+        <p class="create-intro">
+          Optional: up to <strong>three</strong> short <strong>first-person</strong> clips (about <strong>15 seconds</strong> with audio each),
+          hosted on <strong>YouTube</strong> only. Each slot matches a phase of the match — use footage from that time range on the
+          <strong>in-game clock</strong> when possible. We only embed allowlisted YouTube URLs.
+        </p>
+        <p id="create-youtube-hint" class="create-youtube-hint">
+          Accepted: <code>youtube.com</code>, <code>youtu.be</code>, and <code>m.youtube.com</code> watch, embed, Shorts, or Live URLs. Other domains are rejected.
+        </p>
+        <p class="create-youtube-hint create-youtube-hint--small">
+          <strong>Embed timing:</strong> “Clip start / end” are seconds <em>into the YouTube video</em> (for a tight ~15s window). Leave both empty to start at the beginning of the video.
+        </p>
+
+        <!-- Early game -->
+        <div class="create-youtube-slot" data-youtube-phase="early">
+          <h3 class="create-youtube-slot-title">Early game highlight clip</h3>
+          <p class="create-youtube-phase-hint">
+            Ideal match clock: <strong>3:00 – 9:00</strong> (footage from the opening minutes through mid-early).
+          </p>
+          <p id="create-youtube-error-early" class="create-error" role="alert" hidden></p>
+          <input type="hidden" name="youtube_early_video_id" id="youtubeEarlyVideoId" value="" />
+          <input type="hidden" name="youtube_early_start_sec" id="youtubeEarlyStartSec" value="" />
+          <input type="hidden" name="youtube_early_end_sec" id="youtubeEarlyEndSec" value="" />
+          <label class="create-field">
+            <span class="create-field-label">YouTube link</span>
+            <input
+              type="url"
+              id="youtubeEarlyUrlInput"
+              class="create-input"
+              inputmode="url"
+              autocomplete="off"
+              placeholder="https://www.youtube.com/watch?v=… or https://youtu.be/…"
+              aria-describedby="create-youtube-hint"
+            />
+          </label>
+          <div class="create-youtube-clip-fields">
+            <label class="create-field create-youtube-clip-field">
+              <span class="create-field-label">Clip start (seconds, optional)</span>
+              <input type="number" id="youtubeEarlyStartInput" class="create-input" min="0" max="86400" step="1" placeholder="e.g. 42" />
+            </label>
+            <label class="create-field create-youtube-clip-field">
+              <span class="create-field-label">Clip end (seconds, optional)</span>
+              <input type="number" id="youtubeEarlyEndInput" class="create-input" min="0" max="86400" step="1" placeholder="e.g. 57" />
+            </label>
+          </div>
+          <div class="create-youtube-preview-wrap" id="youtubeEarlyPreviewWrap" hidden>
+            <p class="create-youtube-preview-label">Preview (privacy-enhanced embed)</p>
+            <div class="create-youtube-preview-frame">
+              <iframe
+                id="youtubeEarlyIframe"
+                title="Early game YouTube preview"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm create-youtube-clear" id="youtubeEarlyClear" hidden>Remove this clip</button>
+        </div>
+
+        <!-- Mid game -->
+        <div class="create-youtube-slot" data-youtube-phase="mid">
+          <h3 class="create-youtube-slot-title">Mid game highlight clip</h3>
+          <p class="create-youtube-phase-hint">
+            Ideal match clock: <strong>9:01 – 15:00</strong>.
+          </p>
+          <p id="create-youtube-error-mid" class="create-error" role="alert" hidden></p>
+          <input type="hidden" name="youtube_mid_video_id" id="youtubeMidVideoId" value="" />
+          <input type="hidden" name="youtube_mid_start_sec" id="youtubeMidStartSec" value="" />
+          <input type="hidden" name="youtube_mid_end_sec" id="youtubeMidEndSec" value="" />
+          <label class="create-field">
+            <span class="create-field-label">YouTube link</span>
+            <input type="url" id="youtubeMidUrlInput" class="create-input" inputmode="url" autocomplete="off" placeholder="https://www.youtube.com/watch?v=… or https://youtu.be/…" aria-describedby="create-youtube-hint" />
+          </label>
+          <div class="create-youtube-clip-fields">
+            <label class="create-field create-youtube-clip-field">
+              <span class="create-field-label">Clip start (seconds, optional)</span>
+              <input type="number" id="youtubeMidStartInput" class="create-input" min="0" max="86400" step="1" placeholder="e.g. 120" />
+            </label>
+            <label class="create-field create-youtube-clip-field">
+              <span class="create-field-label">Clip end (seconds, optional)</span>
+              <input type="number" id="youtubeMidEndInput" class="create-input" min="0" max="86400" step="1" placeholder="e.g. 135" />
+            </label>
+          </div>
+          <div class="create-youtube-preview-wrap" id="youtubeMidPreviewWrap" hidden>
+            <p class="create-youtube-preview-label">Preview (privacy-enhanced embed)</p>
+            <div class="create-youtube-preview-frame">
+              <iframe
+                id="youtubeMidIframe"
+                title="Mid game YouTube preview"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm create-youtube-clear" id="youtubeMidClear" hidden>Remove this clip</button>
+        </div>
+
+        <!-- Late game -->
+        <div class="create-youtube-slot" data-youtube-phase="late">
+          <h3 class="create-youtube-slot-title">Late game highlight clip</h3>
+          <p class="create-youtube-phase-hint">
+            Ideal match clock: <strong>15:01</strong> and onward (late / closing fights).
+          </p>
+          <p id="create-youtube-error-late" class="create-error" role="alert" hidden></p>
+          <input type="hidden" name="youtube_late_video_id" id="youtubeLateVideoId" value="" />
+          <input type="hidden" name="youtube_late_start_sec" id="youtubeLateStartSec" value="" />
+          <input type="hidden" name="youtube_late_end_sec" id="youtubeLateEndSec" value="" />
+          <label class="create-field">
+            <span class="create-field-label">YouTube link</span>
+            <input type="url" id="youtubeLateUrlInput" class="create-input" inputmode="url" autocomplete="off" placeholder="https://www.youtube.com/watch?v=… or https://youtu.be/…" aria-describedby="create-youtube-hint" />
+          </label>
+          <div class="create-youtube-clip-fields">
+            <label class="create-field create-youtube-clip-field">
+              <span class="create-field-label">Clip start (seconds, optional)</span>
+              <input type="number" id="youtubeLateStartInput" class="create-input" min="0" max="86400" step="1" placeholder="e.g. 920" />
+            </label>
+            <label class="create-field create-youtube-clip-field">
+              <span class="create-field-label">Clip end (seconds, optional)</span>
+              <input type="number" id="youtubeLateEndInput" class="create-input" min="0" max="86400" step="1" placeholder="e.g. 935" />
+            </label>
+          </div>
+          <div class="create-youtube-preview-wrap" id="youtubeLatePreviewWrap" hidden>
+            <p class="create-youtube-preview-label">Preview (privacy-enhanced embed)</p>
+            <div class="create-youtube-preview-frame">
+              <iframe
+                id="youtubeLateIframe"
+                title="Late game YouTube preview"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm create-youtube-clear" id="youtubeLateClear" hidden>Remove this clip</button>
+        </div>
+      </section>
+
       <div class="create-form-actions">
         <a href="builds.html" class="btn btn-ghost">Cancel</a>
-        <button type="submit" class="btn btn-primary" id="createSaveBtn">Save draft (local preview coming soon)</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="createSubmitBuildBtn"
+          title="Your build will be submitted after naming"
+        >Name your Build</button>
       </div>
     </form>
   </main>
+
+  <dialog
+    class="create-submit-dialog"
+    id="createBuildNameDialog"
+    aria-labelledby="createSubmitDialogTitle"
+    aria-describedby="createSubmitDialogDesc"
+  >
+    <div class="create-submit-dialog-panel" id="createSubmitDialogPanel">
+      <button type="button" class="create-submit-dialog-close" id="createSubmitDialogClose" aria-label="Close">×</button>
+      <p class="create-submit-dialog-kicker">Ready?</p>
+      <h2 class="create-submit-dialog-title" id="createSubmitDialogTitle">Immortalize your build</h2>
+      <p class="create-submit-dialog-desc" id="createSubmitDialogDesc">
+        Give the people a name to remember.
+      </p>
+      <label class="create-submit-dialog-label" for="createSubmitDialogNameInput">Build title</label>
+      <input
+        type="text"
+        id="createSubmitDialogNameInput"
+        class="create-submit-dialog-input"
+        maxlength="120"
+        autocomplete="off"
+        placeholder="e.g. Full AP Lux — One-Shot Onslaught"
+      />
+      <p class="create-submit-dialog-hint" id="createSubmitDialogError" role="alert" hidden></p>
+      <div class="create-submit-dialog-actions">
+        <button type="button" class="btn btn-ghost" id="createSubmitDialogCancel">Not yet</button>
+        <button type="button" class="btn btn-primary create-submit-dialog-cta" id="createSubmitDialogConfirm">
+          Seal the build
+        </button>
+      </div>
+    </div>
+    <div class="create-submit-dialog-success" id="createSubmitDialogSuccess" hidden>
+      <p class="create-submit-dialog-success-line" aria-hidden="true">✦</p>
+      <p class="create-submit-dialog-success-title">So it is written.</p>
+      <p class="create-submit-dialog-success-name" id="createSubmitDialogSuccessName"></p>
+      <p class="create-submit-dialog-success-sub">Your title is locked in for this draft. Full publishing hooks up next.</p>
+      <button type="button" class="btn btn-primary" id="createSubmitDialogDone">Return to editor</button>
+    </div>
+  </dialog>
 
   <footer class="footer" id="footer">
     <div class="container">
